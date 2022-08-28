@@ -1,0 +1,675 @@
+$main: #ff6600
+$light: #fff
+$dark: #000
+
+@mixin center
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin space
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+@mixin even
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+
+@mixin container
+  max-width: 1400px
+  padding: 0 25px
+  margin: 0 auto
+
+@mixin image
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+@mixin transition
+  transition: filter 0.45s cubic-bezier(0, 0, 0, 1), transform 0.45s cubic-bezier(0, 0, 0, 1)
+
+a
+  color: #000
+
+.mob
+  /*****************    mobile-nav    ****************/
+  .mobile-nav
+    position: sticky
+    bottom: 0
+    margin: 0
+    padding: 0
+    z-index: 20
+    @include center()
+
+    .nav-bg
+      width: 100%
+      height: 60px
+      background-color: #202020
+      position: relative
+      @include space()
+
+      .bars
+        height: 20px
+        width: 30px
+        margin-right: 3rem
+        position: relative
+        transition: 0.4s
+
+        .bars-line
+          position: absolute
+          left: 50%
+          top: 50%
+          transform: translate(-50%, -50%)
+          width: 100%
+          height: 2px
+          background-color: #fff
+          transition: 0.4s
+
+          &:nth-child(1)
+            top: 0
+            left: 0
+            transform: translateY(-50%)
+            width: 50%
+            transition: 0.4s
+
+          &:nth-child(3)
+            top: 100%
+            right: 0
+            transform: translateY(-50%)
+            width: 50%
+            transition: 0.4s
+
+        &.close
+          .bars-line
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            width: 100%
+            height: 2px
+            background-color: #fff
+
+            &:nth-child(1)
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%) rotate(45deg)
+              width: 100%
+
+            &:nth-child(2)
+              width: 0
+
+            &:nth-child(3)
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%) rotate(-45deg)
+              width: 100%
+
+      i
+        margin-left: 3rem
+        color: $light
+
+    .cart-icons
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translate(-50%, -50%)
+      height: 80px
+      width: 80px
+      border-radius: 50%
+      background-color: $main
+      border: 5px solid #f5f5f5
+      @include center()
+      z-index: 21
+
+      .shopping-icon
+        width: 34px
+        height: 34px
+
+      .item-count
+        position: absolute
+        font-size: 12px
+        font-weight: bold
+        top: 54%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+  /*************************************************
+   side-menu  
+
+  .side-menu
+    position: fixed
+    background-color: #141414
+    height: 100%
+    width: 0%
+    padding: 2rem
+    text-align: center
+    transition: 0.4s
+    top: 90%
+    left: 80%
+    opacity: 0
+
+    &.show
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      opacity: 1
+      z-index: 20
+
+    .close-btn
+      position: absolute
+      bottom: 10px
+      right: 10px
+      @include image()
+      height: 40px
+      width: 40px
+
+    .wrapper
+      .profile
+        @include center()
+
+        .image
+          @include image()
+          height: 100px
+          width: 100px
+          border-radius: 50%
+          border: 3px solid $main
+
+    h4
+      font-size: 24px
+      color: $light
+      font-weight: 400
+      margin: 1rem 0
+
+    .group
+      @include center()
+
+      .button
+        padding: 0.5rem 1rem
+        color: $main
+        border: 1px solid $main
+        margin: 0 10px
+
+    .nav-list
+      color: $light
+      width: 100%
+      margin: 2rem 0
+      text-align: left
+
+      li
+        .li
+          line-height: 4rem
+          @include space()
+          font-size: 18px
+          font-weight: 300
+          position: relative
+
+        .nav-drop
+          margin: 0
+          padding: 0
+
+          li
+            background-color: #2e2e2e
+            height: 0
+            @include center()
+            justify-content: flex-start
+            padding: 0 1rem
+            border-bottom: 2px solid #000
+            opacity: 0
+            transition: 0.4s
+            border-left: 3px solid $main
+            border-radius: 5px
+
+          &.show-drop
+            li
+              height: 60px
+              opacity: 1
+
+        .grab
+          @include center()
+          justify-content: flex-start
+
+        .arrow
+          @include image()
+          height: 19px
+          width: 19px
+          transform: rotate(0)
+          transition: 0.4s
+
+          &.rotate
+            transform: rotate(90deg)
+
+        .icon
+          @include image()
+          height: 19px
+          width: 19px
+          margin-right: 10px
+
+  /******************    header    *****************/
+
+  .header
+    background-color: #f5f5f5
+
+    .top
+      @include container
+      display: flex
+      align-items: stretch
+      position: relative
+
+      .search
+        @include center()
+        justify-content: flex-start
+        width: 70%
+        position: relative
+        z-index: 10
+        order: 2
+
+        input
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.2)
+          padding: 1rem
+          width: 100%
+          height: 40px
+          border-radius: 20px
+
+        .search-btn
+          position: absolute
+          right: 0
+          top: 50%
+          width: 40px
+          height: 40px
+          transform: translateY(-50%)
+          background-color: $main
+          @include center()
+          font-size: 12px
+          color: $light
+          border-radius: 50%
+
+      .for-logo
+        order: 1
+        .logo
+          width: 80%
+
+      .sign-cart
+        display: none
+        .cart
+          display: none
+
+        .login
+          margin-left: 2rem
+          cursor: pointer
+          @include center()
+
+        .sign-in
+          display: none
+
+  .nav-bar
+    display: none
+
+  /******************    Slider    *****************/
+
+  .slider
+    position: relative
+    margin-top: 2rem
+    padding: 1rem 0 2.5rem 0
+
+    .container
+      @include container
+      display: flex
+      flex-direction: column
+      align-items: stretch
+      overflow: hidden
+
+    .wrapper
+      @include center()
+      order: 2
+
+      .content
+        margin-top: 2rem
+        text-align: center
+
+      h3
+        font-weight: 500
+        font-size: 20px
+        position: relative
+
+      h4
+        font-size: 18px
+        font-weight: 500
+        margin: 0.7rem 0 1rem
+
+      h6
+        font-size: 14px
+        font-weight: 400
+        margin: 0.7rem 0
+
+      .custom-button
+        background-color: $main
+        padding: 0.5rem 2rem
+        font-size: 16px
+        font-weight: 500
+        cursor: pointer
+        margin-right: 1rem
+        display: inline-block
+
+      .custom-btn
+        padding: 0.5rem 2rem
+        font-size: 16px
+        font-weight: 500
+        cursor: pointer
+        position: relative
+        display: inline-block
+
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 20px
+          height: 20px
+          border-left: 1px solid $dark
+          border-top: 1px solid $dark
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: 0
+          right: 0
+          width: 20px
+          height: 20px
+          border-bottom: 1px solid $dark
+          border-right: 1px solid $dark
+
+    .wrappers
+      @include center()
+      order: 1
+
+      .image-bg
+        height: 200px
+        width: 300px
+        position: relative
+
+        &:before
+          content: ''
+          position: absolute
+          top: -13px
+          left: -13px
+          height: 100%
+          width: 100%
+          background-color: rgba($main, 0.2)
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: -13px
+          right: -13px
+          height: 100%
+          width: 100%
+          background-color: rgba($main, 0.6)
+
+        .slider-image
+          position: relative
+          @include image()
+          width: 100%
+          height: 100%
+          z-index: 1
+
+  /*************************************************
+  directory  
+
+  .directory-menu
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 13px
+    @include container()
+    margin-top: 2rem
+
+    .menu-item
+      position: relative
+      height: 150px
+      width: 100%
+      border-radius: 13px
+      overflow: hidden
+
+      &:nth-child(3)
+        grid-column: 1/3
+
+      .background-image
+        width: 100%
+        height: 100%
+        @include image()
+
+      .content
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        color: $light
+        background-color: rgba($dark, 0.1)
+        backdrop-filter: blur(5px)
+        width: 100%
+        text-align: center
+        padding: 0.7rem 0
+
+        h1
+          font-size: 24px
+          font-weight: 400
+
+  .title
+    text-align: center
+    margin: 3rem 0 1rem
+    font-size: 40px
+
+  /****************    special    *******************/
+
+  .special-offers-card
+    @include container()
+    overflow-x: hidden
+
+    .swiper-container
+      width: 650px
+      height: 360px
+
+    .image
+      border-radius: 13px
+      box-shadow: 4px 4px 10px rgba($dark, 0.1)
+      @include image()
+      height: 350px
+      overflow: hidden
+      position: relative
+
+      .shopping-cart
+        position: absolute
+        bottom: 5px
+        right: 5px
+        height: 30px
+        width: 30px
+        border-radius: 50%
+        background-color: $light
+        color: #000
+        @include center()
+        font-size: 12px
+
+      .ribbon
+        position: absolute
+        right: -35px
+        top: -35px
+        height: 120px
+        width: 120px
+        overflow: hidden
+
+        .tag
+          position: absolute
+          left: 50%
+          top: 50%
+          transform: translate(-50%, -50%) rotate(45deg)
+          background-color: $main
+          color: $light
+          width: 100%
+          height: 25px
+          font-size: 14px
+          @include center()
+          text-transform: uppercase
+
+      .content
+        position: absolute
+        bottom: 0
+        left: 0
+        padding: 0.4rem
+        background-color: rgba($dark, 0.6)
+        backdrop-filter: blur(5px)
+        color: $light
+        width: 100%
+
+        h4
+          font-size: 14px
+          font-weight: 400
+
+        h6
+          font-size: 13px
+          font-weight: 500
+          color: $main
+          margin: 0.5rem 0
+
+          del
+            margin-left: 9px
+            font-size: 11px
+            color: $light
+            text-decoration: line-through
+
+        .button
+          padding: 0.3rem 0.9rem
+          font-size: 13px
+          color: $dark
+          background-color: $main
+          display: inline-block
+          border-radius: 20px
+
+  /*****************    feature    ******************/
+
+  .feature-product
+    @include container()
+    overflow-x: hidden
+
+    .swiper-container
+      width: 650px
+      height: 210px
+
+    .card
+      position: relative
+      height: 200px
+      border-radius: 13px
+      overflow: hidden
+      box-shadow: 4px 4px 10px rgba($dark, 0.1)
+
+      &:hover
+        .for-image
+          .image
+            transform: scale(1.2)
+
+          .explore
+            width: 100%
+            opacity: 1
+
+      .for-image
+        width: 100%
+        height: 100%
+        overflow: hidden
+        position: relative
+
+        &::after
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          bottom: 0
+          right: 0
+          background-image: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6))
+
+        .image
+          @include image()
+          width: 100%
+          height: 100%
+          @include transition()
+
+      .content
+        position: absolute
+        bottom: 0
+        left: 0
+        padding: 0.4rem
+        width: 100%
+
+        .shopping-cart
+          position: absolute
+          bottom: 5px
+          right: 5px
+          height: 30px
+          width: 30px
+          border-radius: 50%
+          background-color: $light
+          color: #000
+          @include center()
+
+        h4
+          color: $light
+          font-size: 20px
+          font-weight: 400
+
+        h6
+          color: $main
+          font-size: 16px
+          font-weight: 400
+
+  /*****************    follow    ******************/
+
+  .follow
+    position: relative
+    height: 300px
+    width: 100%
+    @include image()
+    margin-top: 4rem
+    @include center()
+    background-attachment: fixed
+
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: rgba(0, 0, 0, 0.5)
+
+    .content
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      z-index: 1
+      text-align: center
+      width: 100%
+
+      h2
+        text-transform: uppercase
+        color: $light
+        font-size: 30px
+        font-weight: 400
+        margin-bottom: 2rem
+
+      .social-icon
+        background-color: $light
+        text-align: center
+        display: inline-block
+        padding: 1rem 2rem
+        i
+          margin: 0 0.8rem
+          font-size: 20px
+          cursor: pointer
+
+          &.fa-instagram
+            color: linear-gradient( circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90% )
+
+  .footer
+    .content-list
+      display: none

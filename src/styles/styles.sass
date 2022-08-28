@@ -1,0 +1,1125 @@
+$main: #ff6600
+$light: #fff
+$dark: #000
+$sub-color: grey
+$main-color: black
+
+@mixin shrinkLabel
+  top: -14px
+  font-size: 12px
+  color: $main-color
+
+@mixin center
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin space
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+@mixin even
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+
+@mixin container
+  max-width: 1400px
+  padding: 0 25px
+  margin: 0 auto
+
+@mixin image
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+@mixin transition
+  transition: filter 0.45s cubic-bezier(0, 0, 0, 1), transform 0.45s cubic-bezier(0, 0, 0, 1)
+
+a
+  color: #000
+
+/*************************************************
+ custom-button    
+
+.custom-button
+  text-align: center
+  padding: 1rem 0
+  color: $light
+  text-transform: uppercase
+  font-size: 20px
+  transition: 0.4s
+  z-index: -1
+  cursor: pointer
+  transition: all 0.4s ease-in-out
+  box-shadow: 0 0 0 0em $main inset
+  background-color: #141414
+
+  &:hover
+    box-shadow: 0 0 0 3em $main inset
+    background-color: #141414
+
+  &.google
+    background-color: #4285f4
+    box-shadow: 0 0 0 0em #1d66db inset
+    margin-left: 0.5rem
+
+    &:hover
+      box-shadow: 0 0 0 3em #1d66db inset
+      background-color: #4285f4
+
+/*************************************************
+ Header       
+.desktop
+  .header
+    padding: 1rem 0
+    background-color: #f5f5f5
+
+    .top
+      @include container
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+      grid-gap: 10px
+
+      .search
+        position: relative
+        @include center()
+        justify-content: flex-start
+        width: 70%
+        input
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.2)
+          padding: 0.5rem
+          width: 100%
+          height: 30px
+
+        .search-btn
+          position: absolute
+          right: 0
+          top: 50%
+          width: 40px
+          height: 30px
+          transform: translateY(-50%)
+          background-color: $main
+          @include center()
+          font-size: 12px
+          color: $light
+
+      .for-logo
+        @include center()
+        .logo
+          width: 80%
+
+      .sign-cart
+        @include center()
+        justify-content: flex-end
+        font-size: 15px
+
+        i
+          font-size: 13px
+          margin-right: 7px
+
+        .cart
+          margin-left: 2rem
+          cursor: pointer
+          @include center()
+
+        .login
+          margin-left: 2rem
+          cursor: pointer
+          @include center()
+
+        .sign-in
+          cursor: pointer
+          @include center()
+
+  .nav-bar
+    position: sticky
+    top: 0
+    left: 0
+    z-index: 10
+    @include center()
+    margin-top: 1rem
+    background-color: #f5f5f5
+    box-shadow: 0px 5px 5px rgba($dark, 0.1)
+
+    &.sticky
+      box-shadow: 0px 5px 5px rgba($dark, 0.8)
+
+    ul
+      @include even()
+      @include container()
+
+      li
+        margin: 0 1.5rem
+        line-height: 3rem
+        text-transform: uppercase
+        font-weight: 500
+        border-bottom: 1px solid transparent
+        transition: 0.4s
+
+        &:hover
+          border-bottom: 1px solid $main
+
+        &:hover a
+          color: $main
+
+        .active
+          color: $main
+
+  /*************************************************
+   Slider       
+  .swiper-wrapper
+    transition-duration: 1s !important
+
+  .swiper-pagination-bullet-active
+    background-color: $main !important
+
+  .slider
+    position: relative
+    background-color: $light
+
+    .container
+      @include container
+      display: grid
+      grid-template-columns: 1fr 1fr
+      height: 400px
+
+    .wrapper
+      @include center()
+
+      h3
+        font-weight: 500
+        font-size: 25px
+        margin: 0.4rem 0
+
+      h4
+        font-size: 18px
+        font-weight: 500
+        margin: 0.7rem 0 1rem
+
+      h6
+        font-weight: 400
+        font-size: 14px
+        position: relative
+
+        &:before
+          content: ''
+          position: absolute
+          top: -22px
+          left: 0
+          width: 42px
+          height: 2px
+          background-color: rgba($dark, 0.5)
+
+        &:after
+          content: ''
+          position: absolute
+          top: -12px
+          left: 0
+          width: 84px
+          height: 3px
+          background-color: $dark
+
+      h6
+        font-size: 12px
+        font-weight: 400
+
+      .custom-button
+        background-color: $main
+        padding: 1rem 3rem
+        font-size: 16px
+        font-weight: 500
+        cursor: pointer
+        margin-right: 2rem
+        display: inline-block
+
+      .custom-btn
+        padding: 1rem 3rem
+        font-size: 16px
+        font-weight: 500
+        cursor: pointer
+        position: relative
+        display: inline-block
+
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 30px
+          height: 30px
+          border-left: 1px solid $dark
+          border-top: 1px solid $dark
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: 0
+          right: 0
+          width: 30px
+          height: 30px
+          border-bottom: 1px solid $dark
+          border-right: 1px solid $dark
+
+    .wrappers
+      @include center()
+      .image-bg
+        height: 200px
+        width: 300px
+        position: relative
+
+        &:before
+          content: ''
+          position: absolute
+          top: -13px
+          left: -13px
+          height: 100%
+          width: 100%
+          background-color: rgba($main, 0.2)
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: -13px
+          right: -13px
+          height: 100%
+          width: 100%
+          background-color: rgba($main, 0.6)
+
+        .slider-image
+          position: relative
+          @include image()
+          width: 100%
+          height: 100%
+          z-index: 1
+
+  /*************************************************
+   directory     
+
+  .directory-menu
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    @include container()
+    margin-top: 1rem
+
+    .homepage
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding: 20px 80px
+
+    .directory-menu
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+
+    .menu-item
+      min-width: 30%
+      height: 300px
+      flex: 1 1 auto
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 7.5px 15px
+      overflow: hidden
+
+      &:hover
+        cursor: pointer
+
+        & .background-image
+          transform: scale(1.1)
+          transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95)
+
+        & .content
+          opacity: 0.9
+
+      &.large
+        height: 380px
+
+      &:first-child
+        margin-right: 7.5px
+
+      &:last-child
+        margin-left: 7.5px
+
+      .background-image
+        width: 100%
+        height: 100%
+        background-position: center
+        background-size: cover
+        overflow: hidden
+
+      .content
+        height: 90px
+        width: 300px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        background-color: rgba($dark, 0.3)
+        color: $light
+        backdrop-filter: blur(20px)
+        position: absolute
+
+        h1
+          font-size: 48px
+          font-weight: 300
+          color: $light
+
+        .subtitle
+          font-weight: lighter
+          font-size: 16px
+
+  /*************************************************
+   special-offers          
+
+  .special-offers
+    @include container()
+    margin-top: 4rem
+
+    .title
+      text-align: center
+      font-size: 60px
+      margin-bottom: 2rem
+
+    .special-offers-card-list
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      grid-gap: 20px
+
+      .special-offers-card
+        .image
+          @include image()
+          height: 500px
+          width: 100%
+          position: relative
+          overflow: hidden
+
+          &:hover
+            .custom-button
+              bottom: 0
+              z-index: 1
+
+            .quick-view
+              height: 100px
+              width: 100px
+              opacity: 1
+
+              &:hover
+                i
+                  transform: rotate(0)
+                  font-size: 30px
+
+          .custom-button
+            position: absolute
+            bottom: -80px
+            left: 50%
+            transform: translateX(-50%)
+            display: inline-block
+            width: 100%
+
+          .ribbon
+            position: absolute
+            right: -35px
+            top: -35px
+            height: 140px
+            width: 140px
+            overflow: hidden
+
+            .tag
+              position: absolute
+              left: 50%
+              top: 50%
+              transform: translate(-50%, -50%) rotate(45deg)
+              background-color: $main
+              color: $light
+              width: 100%
+              padding: 0.5rem 0
+              @include center()
+              text-transform: uppercase
+
+          .quick-view
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            height: 200px
+            width: 200px
+            border-radius: 50%
+            background-color: rgba($dark, 0.2)
+            backdrop-filter: blur(10px)
+            @include center()
+            font-size: 24px
+            color: $light
+            opacity: 0
+            transition: 0.4s
+            cursor: pointer
+
+            i
+              transform: rotate(360deg)
+              transition: 0.4s
+
+        .content
+          margin: 1rem 0
+          h4
+            font-size: 24px
+            font-weight: 400
+
+          del
+            text-decoration: line-through
+            color: rgba($dark, 0.6)
+            margin: 1rem 0
+
+          h6
+            font-size: 18px
+            font-weight: 400
+            color: $main
+
+  /*************************************************
+   feature-product         
+
+  .feature-product
+    @include container()
+    margin-top: 4rem
+
+    .title
+      text-align: center
+      font-size: 60px
+      margin-bottom: 2rem
+
+    .card-list
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+      grid-gap: 20px
+
+      .card
+        position: relative
+        height: 310px
+
+        &:hover
+          .for-image
+            .image
+              transform: scale(1.2)
+
+            .explore
+              width: 100%
+              opacity: 1
+
+        .for-image
+          width: 100%
+          height: 100%
+          overflow: hidden
+          position: relative
+
+          &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+            background-image: linear-gradient(180deg,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.6) )
+
+          .explore
+            color: $light
+            text-transform: uppercase
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            @include center()
+            height: 50px
+            width: 1%
+            opacity: 0
+            cursor: pointer
+            z-index: 2
+            @include transition()
+            transition: 0.4s
+            box-shadow: 0 0 0 3em #141414 inset
+            background-color: $main
+
+            &:hover
+              box-shadow: 0 0 0 0em #141414 inset
+              background-color: $main
+
+          .image
+            @include image()
+            width: 100%
+            height: 100%
+            @include transition()
+
+        .content
+          position: absolute
+          bottom: 0
+          left: 0
+          padding: 1rem
+
+          h4
+            color: $light
+            font-size: 26px
+            font-weight: 400
+
+          h6
+            color: $main
+            font-size: 20px
+            font-weight: 400
+
+  /*************************************************
+   follow               
+
+  .follow
+    position: relative
+    height: 740px
+    width: 100%
+    @include image()
+    margin-top: 4rem
+    @include center()
+    background-attachment: fixed
+
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: rgba(0, 0, 0, 0.5)
+
+    .content
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      z-index: 1
+      text-align: center
+      width: 100%
+
+      h2
+        text-transform: uppercase
+        color: $light
+        font-size: 60px
+        font-weight: 400
+        margin-bottom: 2rem
+
+      .social-icon
+        background-color: $light
+        text-align: center
+        padding: 2rem
+        display: inline-block
+        i
+          margin: 0 2rem
+          font-size: 30px
+          cursor: pointer
+
+          &.fa-instagram
+            color: linear-gradient( circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90% )
+
+  /*************************************************
+   footer               
+
+  .footer
+    position: relative
+    @include image()
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background: rgba(0, 0, 0, 0.8)
+
+    .content-list
+      @include container()
+      position: relative
+      z-index: 1
+      color: $light
+      padding: 4rem 0
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+
+      .content
+        text-align: left
+        h4
+          font-size: 50px
+          font-weight: 300
+          margin-bottom: 2rem
+
+        h6
+          font-weight: 300
+          font-size: 24px
+          margin-bottom: 1rem
+
+      .slide-image
+        overflow: hidden
+
+        .swiper-wrapper
+          transition-duration: 1s !important
+
+        .slide
+          @include image()
+          width: 100%
+          height: 300px
+
+  /*************************************************
+   shop-page            
+
+  .shop-page
+    display: grid
+    grid-template-columns: 1fr 3fr
+    grid-gap: 10px
+    @include container()
+    margin: 4rem auto
+
+    .special-offers
+      margin: 0
+      padding: 0
+
+      .title
+        display: none
+
+      .special-offers-card-list
+        grid-template-columns: 1fr 1fr 1fr
+
+    .feature-product
+      margin: 0
+      padding: 0
+      .title
+        display: none
+
+  /*************************************************
+   custom-search            
+  .custom-search
+    h1
+      font-size: 24px
+      text-transform: uppercase
+      font-weight: 400
+
+    .price-range
+      .middle
+        position: relative
+        max-width: 500px
+        margin: 2rem 0
+
+      .sliders
+        position: relative
+        z-index: 1
+        height: 5px
+        margin: 0 15px
+
+      .sliders > .track
+        position: absolute
+        z-index: 1
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        border-radius: 5px
+        background-color: rgba($dark, 0.2)
+
+      .sliders > .range
+        position: absolute
+        z-index: 2
+        left: 25%
+        right: 25%
+        top: 0
+        bottom: 0
+        border-radius: 5px
+        background-color: $main
+
+      .sliders > .thumb
+        position: absolute
+        z-index: 3
+        width: 20px
+        height: 20px
+        background-color: $main
+        border-radius: 50%
+        box-shadow: 0 0 0 0 rgba($main, 0.1)
+        transition: box-shadow 0.3s ease-in-out
+
+      .sliders > .thumb.left
+        left: 25%
+        transform: translate(-15px, -10px)
+
+      .sliders > .thumb.right
+        right: 25%
+        transform: translate(15px, -10px)
+
+      .sliders > .thumb.hover
+        box-shadow: 0 0 0 20px rgba($main, 0.1)
+
+      .sliders > .thumb.active
+        box-shadow: 0 0 0 40px rgba($main, 0.2)
+
+      input[type='range']
+        position: absolute
+        pointer-events: none
+        -webkit-appearance: none
+        z-index: 2
+        height: 5px
+        width: 100%
+        opacity: 0
+
+      input[type='range']::-webkit-slider-thumb
+        pointer-events: all
+        width: 20px
+        height: 20px
+        border-radius: 0
+        border: 0 none
+        background-color: red
+        -webkit-appearance: none
+
+  .mobile-nav
+    display: none
+
+  .side-menu
+    display: none
+
+.copy-right
+  position: relative
+  z-index: 1
+  background-color: #141414
+  width: 100%
+  padding: 1rem 0
+  text-align: center
+  font-size: 24px
+  font-weight: 400
+  color: $light
+
+/*************************************************
+ collection-item          
+
+.collection-item
+  @include container()
+  margin: 3rem auto
+
+  .title
+    font-size: 34px
+    font-weight: 500
+    text-transform: uppercase
+
+  .items-list
+    width: 100%
+    margin: 1.5rem 0
+
+    .collection-preview
+      position: relative
+
+      .effect
+        overflow: hidden
+        position: relative
+        &:hover
+          .image
+            transform: scale(1.2)
+
+          .custom-button
+            bottom: 0
+            z-index: 1
+
+      .custom-button
+        position: absolute
+        bottom: -80px
+        left: 50%
+        transform: translateX(-50%)
+        display: inline-block
+        width: 100%
+
+      .image
+        @include image()
+        height: 400px
+        @include transition()
+
+      .collection-footer
+        @include space()
+
+        h3
+          font-size: 20px
+          font-weight: 400
+
+        h6
+          font-size: 18px
+          font-weight: 400
+          color: $main
+
+.collection-page
+  @include container()
+  margin: 4rem auto
+
+  .title
+    font-size: 34px
+    font-weight: 500
+    text-transform: uppercase
+    margin-bottom: 2rem
+    text-align: center
+
+  .items
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-gap: 20px
+
+    .collection-preview
+      position: relative
+      margin-bottom: 1.7rem
+
+      .effect
+        overflow: hidden
+        position: relative
+        &:hover
+          .image
+            transform: scale(1.2)
+
+          .custom-button
+            bottom: 0
+            z-index: 1
+
+      .custom-button
+        position: absolute
+        bottom: -80px
+        left: 50%
+        transform: translateX(-50%)
+        display: inline-block
+        width: 100%
+
+      .image
+        @include image()
+        height: 400px
+        @include transition()
+
+      .collection-footer
+        @include space()
+
+        h3
+          font-size: 20px
+          font-weight: 400
+
+        h6
+          font-size: 18px
+          font-weight: 400
+          color: $main
+
+/*************************************************
+ form-input             
+
+.group
+  position: relative
+  margin: 45px 0
+
+  .form-input
+    background: none
+    color: $sub-color
+    font-size: 18px
+    padding: 10px 10px 10px 5px
+    display: block
+    width: 100%
+    border: none
+    border-radius: 0
+    border-bottom: 1px solid $sub-color
+    margin: 25px 0
+
+    &:focus
+      outline: none
+
+    &:focus ~ .form-input-label
+      @include shrinkLabel()
+
+  input[type='password']
+    letter-spacing: 0.3em
+
+  .form-input-label
+    color: $sub-color
+    font-size: 16px
+    font-weight: normal
+    position: absolute
+    pointer-events: none
+    left: 5px
+    top: 10px
+    transition: 300ms ease all
+
+    &.shrink
+      @include shrinkLabel()
+
+/*************************************************
+ sign-in-and-sign-up-page  
+
+.sign-in-and-sign-up-page
+  @include container()
+  margin: 3rem auto
+  @include space()
+  align-items: flex-start
+
+.sign-in
+  width: 40%
+
+  .custom-button
+    padding: 0.6rem 1rem
+    font-size: 16px
+
+.sign-up
+  width: 50%
+
+  .custom-button
+    padding: 0.6rem 1rem
+    font-size: 16px
+
+/*************************************************
+ cart-icon     
+
+.cart-icon
+  width: 45px
+  height: 45px
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+
+  .shopping-icon
+    width: 24px
+    height: 24px
+
+  .item-count
+    position: absolute
+    font-size: 10px
+    font-weight: bold
+    bottom: 12px
+
+/*************************************************
+ cart-dropdown   
+
+.cart-dropdown
+  position: absolute
+  width: 240px
+  height: 340px
+  display: flex
+  flex-direction: column
+  padding: 20px
+  border: 1px solid black
+  background-color: white
+  top: 90px
+  right: 40px
+  z-index: 11
+
+  .cart-items
+    height: 240px
+    display: flex
+    flex-direction: column
+    overflow-y: scroll
+
+    .empty-message
+      font-size: 18px
+      margin: 50px auto
+
+  button
+    margin-top: auto
+    font-size: 15px
+
+/*************************************************
+ cart-item     
+
+.cart-item
+  width: 100%
+  display: flex
+  height: 80px
+  margin-bottom: 15px
+
+  .image
+    width: 30%
+    @include image()
+
+  .item-details
+    width: 70%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    padding: 10px 20px
+
+    .name,
+    .price
+      font-size: 14px
+
+/*************************************************
+ checkout-page   
+
+.checkout-page
+  width: 55%
+  min-height: 90vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin: 50px auto 0
+
+  .checkout-header
+    width: 100%
+    padding: 10px 0
+    display: flex
+    justify-content: space-between
+    border-bottom: 1px solid darkgrey
+
+    .header-block
+      text-transform: capitalize
+      width: 23%
+
+      &:nth-child(2)
+        width: 40%
+
+      &:nth-child(3)
+        width: 16%
+
+      &:nth-child(4)
+        width: 13%
+
+      &:last-child
+        width: 8%
+
+  .total
+    margin-top: 30px
+    margin-left: auto
+    font-size: 36px
+
+/*************************************************
+ checkout-item   
+
+.checkout-item
+  width: 100%
+  display: flex
+  min-height: 100px
+  border-bottom: 1px solid darkgrey
+  padding: 15px 0
+  font-size: 20px
+  align-items: center
+
+  .image-container
+    width: 23%
+    padding-right: 15px
+
+    img
+      width: 100%
+      height: 100%
+
+  .price
+    width: 13%
+
+  .name
+    width: 40%
+    padding: 0.5rem
+
+  .quantity
+    width: 16%
+
+  .quantity
+    display: flex
+    .arrow
+      cursor: pointer
+
+    .value
+      margin: 0 10px
+
+  .remove-button
+    padding-left: 12px
+    cursor: pointer
