@@ -1,6 +1,5 @@
 import mensImage from "../../assets/product/clothing/mens-collections/mens.jpeg";
 
-
 const INITIAL_STATE = {
   sections: [
     {
@@ -10,6 +9,7 @@ const INITIAL_STATE = {
       id: 1,
       linkUrl: "shop/hats",
     },
+
     {
       title: "sneakers",
       imageUrl:
@@ -17,6 +17,7 @@ const INITIAL_STATE = {
       id: 2,
       linkUrl: "shop/sneakers",
     },
+
     {
       title: "jackets",
       imageUrl:
@@ -24,6 +25,7 @@ const INITIAL_STATE = {
       id: 3,
       linkUrl: "shop/jackets",
     },
+
     {
       title: "womens",
       imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
@@ -31,6 +33,7 @@ const INITIAL_STATE = {
       id: 4,
       linkUrl: "shop/womens",
     },
+
     {
       title: "mens",
       imageUrl: `${mensImage}`,
