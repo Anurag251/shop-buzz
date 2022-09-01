@@ -1,3 +1,32 @@
+import mensImage1 from "../../assets/product/clothing/mens-collections/p-mens1.jpeg";
+import mensImage2 from "../../assets/product/clothing/mens-collections/p-mens2.jpeg";
+import mensImage3 from "../../assets/product/clothing/mens-collections/p-mens3.jpeg";
+import mensImage4 from "../../assets/product/clothing/mens-collections/p-mens4.jpeg";
+import mensImage5 from "../../assets/product/clothing/mens-collections/p-mens5.jpeg";
+import mensImage6 from "../../assets/product/clothing/mens-collections/p-mens6.jpeg";
+import mensImage7 from "../../assets/product/clothing/mens-collections/p-mens7.jpeg";
+import mensImage8 from "../../assets/product/clothing/mens-collections/p-mens8.jpeg";
+import mensImage9 from "../../assets/product/clothing/mens-collections/p-mens9.jpeg";
+import mensImage10 from "../../assets/product/clothing/mens-collections/p-mens10.jpeg";
+import mensImage11 from "../../assets/product/clothing/mens-collections/p-mens11.jpeg";
+import mensImage12 from "../../assets/product/clothing/mens-collections/p-mens12.jpeg";
+import mensImage13 from "../../assets/product/clothing/mens-collections/p-mens13.jpeg";
+
+import womenImage1 from "../../assets/product/clothing/womens-collections/p-women1.jpeg";
+import womenImage2 from "../../assets/product/clothing/womens-collections/p-women2.jpeg";
+import womenImage3 from "../../assets/product/clothing/womens-collections/p-women3.jpeg";
+import womenImage4 from "../../assets/product/clothing/womens-collections/p-women4.jpeg";
+import womenImage5 from "../../assets/product/clothing/womens-collections/p-women5.jpeg";
+import womenImage6 from "../../assets/product/clothing/womens-collections/p-women6.jpeg";
+import womenImage7 from "../../assets/product/clothing/womens-collections/p-women7.jpeg";
+import womenImage8 from "../../assets/product/clothing/womens-collections/p-women8.jpeg";
+import womenImage9 from "../../assets/product/clothing/womens-collections/p-women9.jpeg";
+import womenImage10 from "../../assets/product/clothing/womens-collections/p-women10.jpeg";
+import womenImage11 from "../../assets/product/clothing/womens-collections/p-women11.jpeg";
+import womenImage12 from "../../assets/product/clothing/womens-collections/p-women12.jpeg";
+import womenImage13 from "../../assets/product/clothing/womens-collections/p-women13.jpeg";
+import womenImage14 from "../../assets/product/clothing/womens-collections/p-women14.jpeg";
+
 const SHOP_DATA = {
   hats: {
     id: 1,
@@ -160,43 +189,98 @@ const SHOP_DATA = {
       {
         id: 23,
         name: "Blue Tanktop",
-        imageUrl: "https://i.ibb.co/7CQVJNm/blue-tank.png",
+        imageUrl: womenImage1,
         price: 25,
       },
+
       {
         id: 24,
         name: "Floral Blouse",
-        imageUrl: "https://i.ibb.co/4W2DGKm/floral-blouse.png",
+        imageUrl: womenImage2,
         price: 20,
       },
+
       {
         id: 25,
         name: "Floral Dress",
-        imageUrl: "https://i.ibb.co/KV18Ysr/floral-skirt.png",
+        imageUrl: womenImage3,
         price: 80,
       },
+
       {
         id: 26,
         name: "Red Dots Dress",
-        imageUrl: "https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png",
+        imageUrl: womenImage4,
         price: 80,
       },
+
       {
         id: 27,
         name: "Striped Sweater",
-        imageUrl: "https://i.ibb.co/KmSkMbH/striped-sweater.png",
+        imageUrl: womenImage5,
         price: 45,
       },
+
       {
         id: 28,
         name: "Yellow Track Suit",
-        imageUrl: "https://i.ibb.co/v1cvwNf/yellow-track-suit.png",
+        imageUrl: womenImage6,
         price: 135,
       },
+
       {
         id: 29,
         name: "White Blouse",
-        imageUrl: "https://i.ibb.co/qBcrsJg/white-vest.png",
+        imageUrl: womenImage7,
+        price: 20,
+      },
+
+      {
+        id: 23,
+        name: "Blue Tanktop",
+        imageUrl: womenImage8,
+        price: 25,
+      },
+
+      {
+        id: 24,
+        name: "Floral Blouse",
+        imageUrl: womenImage9,
+        price: 20,
+      },
+
+      {
+        id: 25,
+        name: "Floral Dress",
+        imageUrl: womenImage10,
+        price: 80,
+      },
+
+      {
+        id: 26,
+        name: "Red Dots Dress",
+        imageUrl: womenImage11,
+        price: 80,
+      },
+
+      {
+        id: 27,
+        name: "Striped Sweater",
+        imageUrl: womenImage12,
+        price: 45,
+      },
+
+      {
+        id: 28,
+        name: "Yellow Track Suit",
+        imageUrl: womenImage13,
+        price: 135,
+      },
+
+      {
+        id: 29,
+        name: "White Blouse",
+        imageUrl: womenImage14,
         price: 20,
       },
     ],
@@ -209,37 +293,81 @@ const SHOP_DATA = {
       {
         id: 30,
         name: "Camo Down Vest",
-        imageUrl: "https://i.ibb.co/xJS0T3Y/camo-vest.png",
+        imageUrl: mensImage1,
         price: 325,
       },
       {
         id: 31,
         name: "Floral T-shirt",
-        imageUrl: "https://i.ibb.co/qMQ75QZ/floral-shirt.png",
+        imageUrl: mensImage2,
         price: 20,
       },
       {
         id: 32,
         name: "Black & White Longsleeve",
-        imageUrl: "https://i.ibb.co/55z32tw/long-sleeve.png",
+        imageUrl: mensImage3,
         price: 25,
       },
       {
         id: 33,
         name: "Pink T-shirt",
-        imageUrl: "https://i.ibb.co/RvwnBL8/pink-shirt.png",
+        imageUrl: mensImage4,
         price: 25,
       },
       {
         id: 34,
         name: "Jean Long Sleeve",
-        imageUrl: "https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png",
+        imageUrl: mensImage5,
         price: 40,
       },
       {
         id: 35,
         name: "Burgundy T-shirt",
-        imageUrl: "https://i.ibb.co/mh3VM1f/polka-dot-shirt.png",
+        imageUrl: mensImage6,
+        price: 25,
+      },
+
+      {
+        id: 30,
+        name: "Camo Down Vest",
+        imageUrl: mensImage7,
+        price: 325,
+      },
+      {
+        id: 31,
+        name: "Floral T-shirt",
+        imageUrl: mensImage8,
+        price: 20,
+      },
+      {
+        id: 32,
+        name: "Black & White Longsleeve",
+        imageUrl: mensImage9,
+        price: 25,
+      },
+      {
+        id: 33,
+        name: "Pink T-shirt",
+        imageUrl: mensImage10,
+        price: 25,
+      },
+      {
+        id: 34,
+        name: "Jean Long Sleeve",
+        imageUrl: mensImage11,
+        price: 40,
+      },
+      {
+        id: 35,
+        name: "Burgundy T-shirt",
+        imageUrl: mensImage12,
+        price: 25,
+      },
+
+      {
+        id: 35,
+        name: "Burgundy T-shirt",
+        imageUrl: mensImage13,
         price: 25,
       },
     ],
