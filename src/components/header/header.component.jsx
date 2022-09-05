@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { auth } from "../../firebase/firebase.utils";
@@ -6,110 +6,135 @@ import { connect } from "react-redux";
 
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrenetUser } from "../../redux/user/user.selectors";
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { ReactComponent as Logo } from "../../assets/logo/Sprezzatura logo.svg";
 
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = ({ currentUser, hidden }) => {
-  //   const [width, setWidth] = useState(0);
+  useEffect(() => {
+    const vSearchBtn = document.querySelector(".v-search-btn");
+    const vSearchField = document.querySelector("#v-search-field");
+    const vSearchInput = document.querySelector("#v-search-input");
+    const vSearchClose = document.querySelector("#fa-times");
 
-  //   window.addEventListener('resize', (e) => {
-  //     setWidth(e.currentTarget.innerWidth);
-  //   });
+    vSearchBtn.addEventListener("click", () => {
+      vSearchField.classList.toggle("active");
+      vSearchInput.focus();
+    });
+  }, []);
 
-  //   if (width) {
-  //   }
-
-  //   Content();
-  //   return <Content />;
-  // };
-
-  // const Content = () => {
-  //   window.addEventListener('resize', (e) => contentToLoad(e));
-
-  //   const contentToLoad = (e) => {
-  //     let width, type;
-  //     e === undefined
-  //       ? (width = window.innerWidth)
-  //       : (width = e.currentTarget.innerWidth);
-  //     width <= 760 ? (type = 'mob') : (type = 'desktop');
-
-  //     if (type === 'desktop') {
   return (
-    <>
-      <div className="header">
-        <div className="top">
-          <form className="search">
-            <input type="text" placeholder={"Search...".toUpperCase()} />
-            <div className="search-btn">
-              <i className="fas fa-search"></i>
-            </div>
-          </form>
-          <div className="for-logo">
-            <Logo className="logo" />
+    <React.Fragment>
+      <div className="v-header">
+        <div className="wrapper">
+          <div className="logo-section">
+            <NavLink to="/" exact>
+              <div className="logo rectangle-shape">
+                <div className="image">
+                  <Logo />
+                </div>
+              </div>
+            </NavLink>
+
+            <ul>
+              <li>
+                <NavLink to="/" exact activeClassName="active">
+                  <button>Home</button>
+                </NavLink>
+              </li>
+
+              {/* <li className="drop-down">
+                <button>
+                  Shop <i className="fas fa-chevron-down"></i>
+                </button>
+                <ul className="drop">
+                  <li>
+                    <NavLink to="/">
+                      <button>Clothing</button>
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink to="/">
+                      <button>Electronic</button>
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink to="/">
+                      <button>Sneakers</button>
+                    </NavLink>
+                  </li>
+                </ul>
+              </li> */}
+
+              <li>
+                <NavLink to="/shop">
+                  <button>Shop</button>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/mens">
+                  <button>Mens</button>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/womens">
+                  <button>Womens</button>
+                </NavLink>
+              </li>
+            </ul>
           </div>
-          <div className="sign-cart ">
-            {hidden ? null : <CartDropdown />}
-            {/* <div className="sign-in">
-              <i className="fas fa-user"></i> SIGN UP
-            </div> */}
-            <div className="login">
-              {currentUser ? (
-                <div onClick={() => auth.signOut()}>SIGN OUT</div>
-              ) : (
-                <Link to="/signIn">
-                  <i className="fas fa-user"></i> LOGIN
-                </Link>
-              )}
+
+          <div className="others">
+            <div className="v-search-section" id="v-search-field">
+              <div className="inner">
+                <button className="v-search-btn">
+                  <div className="icon-group">
+                    <i className="fas fa-search"></i>
+                    <i className="fas fa-times"></i>
+                  </div>
+                </button>
+
+                <form action="">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    id="v-search-input"
+                  />
+                  <button>
+                    <i className="fas fa-search"></i>
+                  </button>
+                </form>
+              </div>
             </div>
-            <div className="cart">
-              <CartIcon />
+
+            <div className="sign-cart">
+              {hidden ? null : <CartDropdown />}
+
+              <div className="login">
+                {currentUser ? (
+                  <div onClick={() => auth.signOut()}>SIGN OUT</div>
+                ) : (
+                  <Link to="/signIn">
+                    <i className="fas fa-user"></i> LOGIN
+                  </Link>
+                )}
+              </div>
+
+              <div className="cart">
+                <CartIcon />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="nav-bar">
-        <ul>
-          <li>
-            <NavLink to="/" exact activeClassName="active">
-              Home
-            </NavLink>
-          </li>
-          {/* <li>
-            <NavLink to="/new">What's New</NavLink>
-          </li> */}
-          <li>
-            <NavLink to="/shop">Shop</NavLink>
-          </li>
-          <li>
-            <NavLink to="/mens">Mens</NavLink>
-          </li>
-          <li>
-            <NavLink to="/womens">Womens</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact Us</NavLink>
-          </li>
-        </ul>
-      </div>
-    </>
+    </React.Fragment>
   );
-  // } else {
-  //   return null;
-  // }
-  // };
-
-  // return contentToLoad();
 };
-
-// let ty = document.querySelector('.nav-bar');
-
-// {`${(window.onload = () =>
-//   (window.onscroll = () =>
-//     window.scrollY > 250
-//       ? ty.classList.add('sticky')
-//       : ty.classList.remove('sticky')))} nav-bar`}
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrenetUser,

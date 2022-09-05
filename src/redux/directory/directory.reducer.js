@@ -1,4 +1,5 @@
 import mensImage from "../../assets/product/clothing/mens-collections/mens.jpeg";
+import womensImage from "../../assets/product/clothing/womens-collections/p-women8.jpeg";
 
 const INITIAL_STATE = {
   sections: [
@@ -28,7 +29,7 @@ const INITIAL_STATE = {
 
     {
       title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+      imageUrl: womensImage,
       size: "large",
       id: 4,
       linkUrl: "shop/womens",
@@ -36,7 +37,7 @@ const INITIAL_STATE = {
 
     {
       title: "mens",
-      imageUrl: `${mensImage}`,
+      imageUrl: mensImage,
       size: "large",
       id: 5,
       linkUrl: "shop/mens",

@@ -9,6 +9,14 @@ $main-color: black
   font-size: 12px
   color: $main-color
 
+@mixin trans()
+  transition: 0.45s cubic-bezier(0, 0, 0, 1),
+
+@mixin flex($justify)
+  display: flex
+  justify-content: $justify
+  align-items: center
+
 @mixin center
   display: flex
   justify-content: center
@@ -1123,3 +1131,198 @@ a
   .remove-button
     padding-left: 12px
     cursor: pointer
+
+/*************************************************
+ v-header   
+.v-header
+  background-color: $main
+  width: 100%
+  position: sticky
+  top: 0
+  z-index: 10
+  box-shadow: 0 4px 10px rgba($dark, .1)
+  padding: .5rem 0
+
+  .wrapper
+    max-width: 1400px
+    padding: 0 25px
+    margin: 0 auto
+    width: 100%
+    @include flex($justify: space-between)
+    position: relative
+
+  .logo-section
+    @include flex($justify: flex-start)
+
+  .logo
+    width: 60px
+    height: 60px
+    @include flex($justify: center)
+    border: 2px solid $light
+    box-shadow: 0 4px 10px rgba($dark, .2)
+    position: relative
+
+    .image
+      overflow: hidden
+      border-radius: 50%
+      height: 100%
+      width: 100%
+      @include flex($justify: center)
+
+  ul
+    @include flex($justify: center)
+    margin-left: 1rem
+
+    li
+      background-color: none
+
+      button
+        padding: .3rem 1rem
+        color: $light
+        font-size: 18px
+        cursor: pointer
+        border-radius: 10px
+        background-color: $main
+
+        &:hover
+          background-color: rgba($light, .2)
+
+      &.drop-down
+        position: relative
+        color: $light
+
+        button
+          @include flex($justify: flex-start)
+
+        i
+          font-size: 12px
+          margin-left: 5px
+          color: $light
+
+        .drop
+          position: absolute
+          left: 50%
+          transform: translateX(-50%)
+          top: 80px
+          @include flex($justify: center)
+          flex-direction: column
+          background-color: $main
+          z-index: 10
+          border-radius: 15px
+          box-shadow: 1px 0 10px rgba($dark, .2)
+          padding: .5rem
+          pointer-events: none
+          opacity: 0
+          @include trans()
+
+          &.active
+            top: 30px
+            pointer-events: auto
+            opacity: 1
+
+          a
+            width: 100%
+
+          li
+            margin-right: 0
+            width: 100%
+            text-align: center
+            margin-bottom: 2px
+
+  .others
+    @include flex($justify: flex-end)
+
+    .sign-cart
+      @include flex($justify: flex-end)
+
+      .login
+        margin: 0 10px
+        color: $light
+
+        a
+          color: $light
+
+        .cart
+          color: $light
+
+        .shopping-icon
+          color: $light
+
+  .v-search-section
+    overflow: hidden
+    @include flex($justify: flex-end)
+
+    &.active
+      .inner
+        max-width: 200px
+        width: 100%
+
+        .v-search-btn
+          .icon-group
+            transform: translateY(-5px)
+
+        form
+          opacity: 1
+          pointer-events: auto
+
+    .inner
+      display: grid
+      grid-template-columns: 30px 1fr
+      background-color: #fff
+      max-width: 30px
+      border-radius: 40px
+      overflow: hidden
+      @include trans()
+
+      .v-search-btn
+        height: 30px
+        width: 30px
+        border-radius: 50%
+        color: $dark
+        @include flex($justify: center)
+        cursor: pointer
+        overflow: hidden
+
+        .icon-group
+          @include flex($justify: center)
+          flex-direction: column
+          height: 60px
+          transform: translateY(25px)
+          @include trans()
+          font-size: 12px
+
+        .fa-search
+          height: 30px
+
+        .fa-times
+          height: 30px
+
+      form
+        position: relative
+        width: 100%
+        height: 100%
+        opacity: 0
+        pointer-events: none
+
+        input
+          width: 100%
+          height: 100%
+          background-color: $light
+          font-size: 16px
+          padding-right: 30px
+
+        button
+          position: absolute
+          right: 3px
+          top: 50%
+          transform: translateY(-50%)
+          height: 25px
+          width: 25px
+          background-color: $main
+          color: $light
+          border-radius: 50%
+          font-size: 10px
+          cursor: pointer
+
+iframe
+  display: none

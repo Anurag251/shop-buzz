@@ -1,16 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { addItem } from '../../redux/cart/cart.actions';
+import { addItem } from "../../redux/cart/cart.actions";
 
-import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from "../custom-button/custom-button.component";
 
 const SpecialOfferCard = ({ item, addItem }) => {
   const { imageUrl, tag, name, mainPrice, price } = item;
   return (
     <div className="special-offers-card">
       <div className="image" style={{ backgroundImage: `url(${imageUrl})` }}>
-        <div className={`${tag ? 'ribbon' : ''}`}>
+        <div className={`${tag ? "ribbon" : ""}`}>
           <div className="tag">{tag}</div>
         </div>
         <div className="quick-view">
