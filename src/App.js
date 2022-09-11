@@ -15,6 +15,7 @@ import MensPage from "./pages/mens-page/mens-page.component";
 import ShopPage from "./pages/shop-page/shop-page.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
+import ProductDetailsPageComponent from "./pages/product-details/product-details-page.component";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -47,10 +48,15 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/womens" component={WomensPage} />
-          <Route path="/mens" component={MensPage} />
+          <Route path="/new-collections" component={WomensPage} />
+          <Route path="/special-offers" component={MensPage} />
           <Route path="/shop" component={ShopPage} />
           <Route exact path="/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path="/product-details/:id"
+            component={ProductDetailsPageComponent}
+          />
           <Route
             exact
             path="/signIn"

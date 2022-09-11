@@ -51,6 +51,17 @@ a
 /*************************************************
  custom-button    
 
+.search-area
+  @include flex($justify: center)
+  padding: 0 20px
+
+.search-filter
+  max-width: 400px
+  width: 100%
+  margin: 0 0 3rem
+  padding: 1rem
+  font-size: 18px
+
 .custom-button
   text-align: center
   padding: 1rem 0
@@ -61,12 +72,11 @@ a
   z-index: -1
   cursor: pointer
   transition: all 0.4s ease-in-out
-  box-shadow: 0 0 0 0em $main inset
-  background-color: #141414
+  box-shadow: 0 0 0 0em #141414 inset
+  background-color: $main
 
   &:hover
-    box-shadow: 0 0 0 3em $main inset
-    background-color: #141414
+    box-shadow: 0 0 0 3em #141414 inset
 
   &.google
     background-color: #4285f4
@@ -394,6 +404,13 @@ a
       font-size: 60px
       margin-bottom: 2rem
 
+    .button-area
+      @include flex($justify: center)
+
+    .custom-button
+      padding: 1rem
+      margin-top: 1rem
+
     .special-offers-card-list
       display: grid
       grid-template-columns: 1fr 1fr 1fr 1fr
@@ -450,6 +467,9 @@ a
               @include center()
               text-transform: uppercase
 
+              &.Sale
+                background-color: #c10000
+
           .quick-view
             position: absolute
             top: 50%
@@ -484,8 +504,8 @@ a
 
           h6
             font-size: 18px
-            font-weight: 400
-            color: $main
+            font-weight: 700
+            color: #c10000
 
   /*************************************************
    feature-product         
@@ -678,9 +698,9 @@ a
    shop-page            
 
   .shop-page
-    display: grid
-    grid-template-columns: 1fr 3fr
-    grid-gap: 10px
+    // display: grid
+    // grid-template-columns: 1fr 3fr
+    // grid-gap: 10px
     @include container()
     margin: 4rem auto
 
@@ -692,7 +712,7 @@ a
         display: none
 
       .special-offers-card-list
-        grid-template-columns: 1fr 1fr 1fr
+        grid-template-columns: 1fr 1fr 1fr 1fr
 
     .feature-product
       margin: 0
@@ -1326,3 +1346,276 @@ a
 
 iframe
   display: none
+
+/*************    product-details-page     *************/
+.product-details-page
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 20px
+  padding: 3rem 20px
+  max-width: 1400px
+  margin: 0 auto
+
+  h4
+    margin-bottom: .5rem
+    font-size: 18px
+
+  .images
+    display: none
+    @include flex($justify: center)
+    flex-direction: column
+
+    &.active
+      @include flex($justify: center)
+      flex-direction: column
+
+    .image-preview
+      height: 400px
+      width: 100%
+
+      img
+        height: 100%
+        width: 100%
+        object-fit: contain
+
+    ::-webkit-scrollbar
+      height: 5px
+      width: 5px
+
+    ::-webkit-scrollbar-track
+      border: none
+      background-color: #e2e2e2
+
+    ::-webkit-scrollbar-thumb
+      background-color: #5e5e5e
+      border-radius: 10px
+
+    .images-list
+      @include flex($justify: flex-start)
+      margin-top: 10px
+      max-width: 600px
+      width: 100%
+      overflow-x: auto
+      height: 20%
+
+      img
+        height: 80px
+        width: 80px
+        object-fit: contain
+        margin: 5px
+        cursor: pointer
+        @include trans()
+
+        &.active
+          box-shadow: 0 4px 10px rgba($dark, .2)
+
+  .item-details
+    h3
+      font-size: 20px
+
+    .btn-group
+      @include flex($justify: space-between)
+
+      button
+        margin: 5px
+
+    .rating
+      margin: .5rem 0
+
+    .price
+      color: #c10000
+      font-size: 18px
+      font-weight: 600
+
+      del
+        text-decoration: line-through
+        color: rgba($dark, 0.6)
+        margin: 1rem 0
+        margin-left: 1rem
+
+      input
+        color: #c10000
+        font-size: 16px
+        margin-left: 5px
+        resize: horizontal
+        width: 80px
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button
+        -webkit-appearance: none
+        margin: 0
+
+    .profuct-desc
+      margin-top: 2rem
+      margin-bottom: 1rem
+
+      p
+        font-size: 14px
+        color: #2f2f2f
+        line-height: 1.4rem
+        max-height: 100px
+        overflow-y: auto
+        text-align: justify
+        padding-right: 1rem
+
+      ::-webkit-scrollbar
+        width: 5px
+
+      ::-webkit-scrollbar-track
+        border: none
+        background-color: #e2e2e2
+
+      ::-webkit-scrollbar-thumb
+        background-color: $main
+        border-radius: 10px
+
+    .product-varient
+      margin-top: 1rem
+
+      .inner
+        @include flex($justify: flex-start)
+        flex-wrap: wrap
+
+        .img
+          height: 70px
+          width: 70px
+          margin: 10px
+          cursor: pointer
+          @include image()
+          background-size: contain
+          position: relative
+
+          &::after
+            content: ''
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%) scale(1.4)
+            height: 70px
+            width: 70px
+            border: 2px solid $main
+            opacity: 0
+
+            pointer-events: none
+            z-index: 1
+
+          &.active
+            &::after
+              opacity: 1
+              transform: translate(-50%, -50%) scale(1)
+              @include trans()
+
+          // &::before
+          //   content: ''
+          //   position: absolute
+          //   top: 50%
+          //   left: 50%
+          //   transform: translate(-50%, -50%)
+          //   height: 30px
+          //   width: 30px
+          //   background-color: rgba($main, .8)
+          //   z-index: 2
+
+    .others
+      margin-top: 2rem
+      @include flex($justify: space-between)
+
+      .allSizes
+        @include flex($justify: flex-start)
+
+      .quantity
+        .group
+          @include flex($justify: flex-start)
+
+          .quantity-number
+            width: 30px
+            text-align: center
+            margin: 0 10px
+
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button
+            -webkit-appearance: none
+            margin: 0
+
+          .add-button, .sub-button
+            height: 20px
+            width: 20px
+            @include flex($justify: center)
+            border: 1px solid $dark
+            border-radius: 0
+            background-color: none
+            cursor: pointer
+
+            &.disabled
+              opacity: .5
+              pointer-events: none
+
+            i
+              font-size: 12px
+              text-align: center
+
+      .size
+        position: fixed
+        opacity: 0
+        pointer-events: none
+        transform: scale(1.4)
+
+        &.active
+          position: relative
+          opacity: 1
+          pointer-events: auto
+          transform: scale(1)
+          @include trans()
+
+        ul
+          @include flex($justify: flex-start)
+
+          li
+            text-transform: uppercase
+            padding: .3rem .5rem
+            font-size: 12px
+            background-color: $light
+            border: 1px solid #C2C2C2
+            border-radius: 4px
+            margin-right: 5px
+            cursor: pointer
+            @include trans()
+
+            &:hover
+              background-color: rgba($main, .1)
+              transform: translateY(-1px)
+
+            &.active
+              background-color: $main
+              color: $light
+
+            &.not
+              background-color: #DFDFDF
+              color: #A5A5A5
+              position: relative
+              border: 1px solid #dfdfdf
+              cursor: not-allowed
+
+              &:after
+                content: ''
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%) rotate(45deg)
+                height: 100%
+                width: 2px
+                background-color: #c10000
+
+    .button
+      width: 100%
+      margin-top: 2rem
+      text-transform: uppercase
+      padding: 1rem
+      cursor: pointer
+      transition: all 0.4s ease-in-out
+      box-shadow: 0 0 0 0em #141414 inset
+      background-color: $main
+      color: $light
+
+      &:hover
+        box-shadow: 0 0 0 3em #141414 inset

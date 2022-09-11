@@ -76,14 +76,14 @@ const Header = ({ currentUser, hidden }) => {
               </li>
 
               <li>
-                <NavLink to="/mens">
-                  <button>Mens</button>
+                <NavLink to="/special-offers">
+                  <button>Special Offers</button>
                 </NavLink>
               </li>
 
               <li>
-                <NavLink to="/womens">
-                  <button>Womens</button>
+                <NavLink to="/new-collections">
+                  <button>New Collections</button>
                 </NavLink>
               </li>
             </ul>

@@ -1,15 +1,19 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import {
   selectCartItems,
   selectCartTotal,
-} from '../../redux/cart/cart.selectors';
+} from "../../redux/cart/cart.selectors";
 
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 const CheckoutPage = ({ cartItems, total }) => {
+  let productName = [];
+  let productPrice = [];
+  let productQuantity = [];
+
   return (
     <div className="checkout">
       <div className="checkout-page">
@@ -30,9 +34,14 @@ const CheckoutPage = ({ cartItems, total }) => {
             <span>Remove</span>
           </div>
         </div>
-        {cartItems.map((cartItem) => (
-          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-        ))}
+        {cartItems.map((cartItem) => {
+          productName.push(cartItem.name ? cartItem.name : cartItem.title);
+          productPrice.push(cartItem.price);
+          productQuantity.push(cartItem.quantity);
+          return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
+        })}
+
+        {console.log(productName)}
 
         <div className="total">
           <span>TOTAL: NRs{total}</span>

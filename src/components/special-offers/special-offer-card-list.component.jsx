@@ -5,38 +5,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 
 import SwiperCore, { Autoplay } from "swiper/core";
+import { Link, useHistory } from "react-router-dom";
+import CustomButton from "../custom-button/custom-button.component";
 // install Swiper modules
 SwiperCore.use([Autoplay]);
 
 const SpecialOfferCardList = (props) => {
+  const history = useHistory();
   const [test, setTest] = useState(false);
 
   const width = window.innerWidth;
-  let headers = new Headers();
-
-  headers.append("Content-Type", "application/json");
-  headers.append("Accept", "application/json");
-
-  headers.append("Access-Control-Allow-Origin", "http://localhost:3001");
-  headers.append("Access-Control-Allow-Credentials", "true");
-
-  headers.append("GET", "POST", "OPTIONS");
-
-  useEffect(() => {
-    fetch("http://192.168.10.66:8000/category/", {
-      method: "GET",
-      headers: headers,
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []);
-
-  // const hello = async () => {
-  //   const response = await fetch("http://192.168.10.66:8000/categorys");
-  //   const json = response.json();
-
-  //   console.log(json);
-  // };
 
   useEffect(() => {
     if (width <= 760) {
@@ -87,14 +65,29 @@ const SpecialOfferCardList = (props) => {
   // Desktop
   else {
     return (
-      <div className="special-offers-card-list">
-        {props.spcialOffers.map((specialOffer, idx) => (
-          <SpecialOfferCard
-            key={specialOffer.id * idx + 1}
-            item={specialOffer}
-          />
-        ))}
-      </div>
+      <>
+        <div className="special-offers-card-list">
+          {props.spcialOffers
+            .filter((specialOffer, idx) => specialOffer.type === "Offer")
+            .filter((specialOffer, idx) =>
+              history.location.pathname === "/" ? idx < 6 : idx + 1
+            )
+            .map((specialOffer, idx) => (
+              <SpecialOfferCard
+                key={specialOffer.id * idx + 1}
+                item={specialOffer}
+              />
+            ))}
+        </div>
+
+        {history.location.pathname === "/" ? (
+          <div className="button-area">
+            <Link to="/new-collections">
+              <CustomButton>View All</CustomButton>
+            </Link>
+          </div>
+        ) : null}
+      </>
     );
   }
 };

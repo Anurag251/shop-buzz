@@ -1,17 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { addItem } from "../../redux/cart/cart.actions";
 
 import CustomButton from "../custom-button/custom-button.component";
 
 const SpecialOfferCard = ({ item, addItem }) => {
-  const { imageUrl, tag, name, mainPrice, price } = item;
+  const { id, image, tag, name, price, discount } = item;
   return (
     <div className="special-offers-card">
-      <div className="image" style={{ backgroundImage: `url(${imageUrl})` }}>
+      <div className="image" style={{ backgroundImage: `url(${image})` }}>
         <div className={`${tag ? "ribbon" : ""}`}>
-          <div className="tag">{tag}</div>
+          <div className={`tag ${tag}`}>{tag}</div>
         </div>
         <div className="quick-view">
           <i className="fas fa-search"></i>
@@ -19,9 +20,11 @@ const SpecialOfferCard = ({ item, addItem }) => {
         <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
       </div>
       <div className="content">
-        <h4>{name}</h4>
-        <del>NRs: {mainPrice}</del>
-        <h6>NRs: {price} /- </h6>
+        <Link to={`product-details/${id}`}>
+          <h4>{name}</h4>
+        </Link>
+        <del>Rs: {discount}</del>
+        <h6>Rs: {price} /- </h6>
       </div>
     </div>
   );

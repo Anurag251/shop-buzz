@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { addItem } from "../../redux/cart/cart.actions";
-import '../../styles/styles.sass';
+import "../../styles/styles.sass";
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -27,7 +27,7 @@ const Slider = ({ slider, addItem }) => {
       }}
     >
       {slider.map((item) => {
-        const { id, type, name, price, imageUrl } = item;
+        const { id, type, title, price, image } = item;
         return (
           <SwiperSlide key={id}>
             <div className="slider">
@@ -35,7 +35,7 @@ const Slider = ({ slider, addItem }) => {
                 <div className="wrapper">
                   <div className="content">
                     <h6>Type: {type}</h6>
-                    <h3>{name.toUpperCase()}</h3>
+                    <h3>{title.toUpperCase()}</h3>
                     <h4>Price: Rs {price}/-</h4>
                     <div className="custom-button">View</div>
                     <div className="custom-btn" onClick={() => addItem(item)}>
@@ -47,7 +47,7 @@ const Slider = ({ slider, addItem }) => {
                   <div className="image-bg">
                     <div
                       className="slider-image"
-                      style={{ backgroundImage: `url(${imageUrl})` }}
+                      style={{ backgroundImage: `url(${image})` }}
                     ></div>
                   </div>
                 </div>

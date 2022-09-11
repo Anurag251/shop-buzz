@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import CustomSearch from '../../components/custom-search/custom-search.component';
-import SpecialOffer from '../../components/special-offers/special-offer.component';
-import SPECIAL_OFFERS from '../../data/special-offers.data';
-import PriceControlContextProvider from '../../components/custom-search/price-control-context.component';
+import React, { useState, useEffect } from "react";
+import CustomSearch from "../../components/custom-search/custom-search.component";
+import SpecialOffer from "../../components/special-offers/special-offer.component";
+import SPECIAL_OFFERS from "../../data/special-offers.data";
+import PriceControlContextProvider from "../../components/custom-search/price-control-context.component";
 
 const WomensPage = () => {
   useEffect(() => {
@@ -11,11 +11,11 @@ const WomensPage = () => {
   const [data] = useState(SPECIAL_OFFERS);
   return (
     <div className="shop-page">
-      <div>
+      {/* <div>
         <PriceControlContextProvider>
           <CustomSearch />
         </PriceControlContextProvider>
-      </div>
+      </div> */}
       <div>
         <SpecialOffer spcialOffers={data} />
       </div>

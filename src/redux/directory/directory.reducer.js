@@ -1,32 +1,29 @@
 import mensImage from "../../assets/product/clothing/mens-collections/mens.jpeg";
-import womensImage from "../../assets/product/clothing/womens-collections/p-women8.jpeg";
+import womensImage from "../../assets/product/clothing/womens-collections/p-women1.jpeg";
+import jacketImage from "../../assets/product/clothing/men-women/men-women1.jpeg";
+import sneakerImage from "../../assets/product/categories/sneakers.jpeg";
+import printTshirtImage from "../../assets/product/clothing/new-collections/tshirt.jpeg";
 
 const INITIAL_STATE = {
   sections: [
     {
-      title: "hats",
-      imageUrl:
-        "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      title: "tshirt",
+      imageUrl: printTshirtImage,
       id: 1,
       linkUrl: "shop/hats",
     },
-
     {
       title: "sneakers",
-      imageUrl:
-        "https://images.unsplash.com/photo-1581343600721-f4ea1318ec57?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=957&q=80",
+      imageUrl: sneakerImage,
       id: 2,
       linkUrl: "shop/sneakers",
     },
-
     {
-      title: "jackets",
-      imageUrl:
-        "https://images.pexels.com/photos/1706910/pexels-photo-1706910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      title: "Jodi Set",
+      imageUrl: jacketImage,
       id: 3,
       linkUrl: "shop/jackets",
     },
-
     {
       title: "womens",
       imageUrl: womensImage,
@@ -34,7 +31,6 @@ const INITIAL_STATE = {
       id: 4,
       linkUrl: "shop/womens",
     },
-
     {
       title: "mens",
       imageUrl: mensImage,
