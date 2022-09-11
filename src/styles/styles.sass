@@ -48,6 +48,16 @@ $main-color: black
 a
   color: #000
 
+.loading-component
+  height: 400px
+  width: 100%
+  @include flex($justify: center)
+
+  img
+    height: 300px
+    width: 300px
+    object-fit: contain
+
 /*************************************************
  custom-button    
 
@@ -141,6 +151,11 @@ a
           margin-left: 2rem
           cursor: pointer
           @include center()
+          height: 30px
+          width: 30px
+          border-radius: 50%
+          background-color: $light
+          @include flex($justify: center)
 
         .login
           margin-left: 2rem
@@ -1106,9 +1121,18 @@ a
         width: 8%
 
   .total
-    margin-top: 30px
-    margin-left: auto
+    width: 100%
+    margin: 1rem auto
     font-size: 36px
+    @include flex($justify: space-between)
+
+  .custom-button
+    padding: 1rem
+
+  .empty-cart
+    text-align: center
+    h3
+      margin: 1rem 0
 
 /*************************************************
  checkout-item   
@@ -1262,8 +1286,13 @@ a
         a
           color: $light
 
-        .cart
-          color: $light
+      .cart
+        height: 40px
+        width: 40px
+        border-radius: 50%
+        background-color: $light
+        @include flex($justify: center)
+        margin-left: 10px
 
         .shopping-icon
           color: $light
@@ -1619,3 +1648,37 @@ iframe
 
       &:hover
         box-shadow: 0 0 0 3em #141414 inset
+
+.shipping-address-popup
+  position: fixed
+  top: 40%
+  left: 50%
+  transform: translate(-50%, -50%)
+  max-width: 300px
+  width: 100%
+  padding: 1rem
+  background-color: $light
+  box-shadow: 0 4px 10px rgba($dark, .1)
+  z-index: 100
+  opacity: 0
+  pointer-events: none
+  @include trans()
+
+  &.active
+    top: 50%
+    opacity: 1
+    pointer-events: auto
+
+  .close-button
+    position: absolute
+    top: 0
+    right: 0
+    height: 30px
+    width: 30px
+    background-color: $light
+    text-align: center
+    @include flex($justify: center)
+    color: $dark
+    font-size: 14px
+    box-shadow: 0 0 10px rgba($dark, .1)
+    cursor: pointer

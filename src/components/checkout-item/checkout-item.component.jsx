@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   clearItemFromCart,
   addItem,
@@ -7,14 +8,18 @@ import {
 } from "../../redux/cart/cart.actions";
 
 const CheckoutItem = ({ cartItem, clearItem, removeItem, addItem }) => {
-  const { name, image, price, quantity } = cartItem;
+  const { id, name, title, image, price, quantity } = cartItem;
   return (
     <div className="checkout-item">
       <div className="image-container">
         <img src={image} alt="" />
       </div>
 
-      <span className="name">{name}</span>
+      <span className="name">
+        <Link to={`/product-details/${id}`}>
+          {name} {title}
+        </Link>
+      </span>
 
       <span className="quantity">
         <div className="arrow" onClick={() => removeItem(cartItem)}>

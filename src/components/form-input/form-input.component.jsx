@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FormInput = ({ handleChange, lable, ...otherProps }) => {
   return (
@@ -7,7 +7,7 @@ const FormInput = ({ handleChange, lable, ...otherProps }) => {
       {lable ? (
         <label
           className={`${
-            otherProps.value.length ? 'shrink' : ''
+            otherProps.value.length ? "shrink" : ""
           } form-input-label`}
         >
           {lable}

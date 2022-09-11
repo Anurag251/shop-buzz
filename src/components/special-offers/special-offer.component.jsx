@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { urls } from "../../urls";
+import LoadingComponent from "../loading/loading.component";
 import SpecialOfferCardList from "./special-offer-card-list.component";
 
 const SpecialOffer = () => {
@@ -20,8 +21,6 @@ const SpecialOffer = () => {
     data.name.toLowerCase().includes(searchFilter.toLowerCase())
   );
 
-  console.log(filteredData);
-
   return (
     <div className="special-offers">
       {history.location.pathname !== "/" ? (
@@ -40,7 +39,7 @@ const SpecialOffer = () => {
       {spcialOffers[0] !== undefined ? (
         <SpecialOfferCardList spcialOffers={filteredData} />
       ) : (
-        "Loading..."
+        <LoadingComponent />
       )}
     </div>
   );

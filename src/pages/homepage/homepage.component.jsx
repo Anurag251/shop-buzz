@@ -9,6 +9,7 @@ import FEATURED_DATA from "../../data/feature-product.data";
 import Follow from "../../components/follow/follow.component";
 import MobileNav from "../../components/mobile-nav/mobile-nav.component";
 import { urls } from "../../urls";
+import LoadingComponent from "../../components/loading/loading.component";
 // import SideMinu from '../../components/side-menu/side-menu.component';
 
 class Homepage extends React.Component {
@@ -40,7 +41,7 @@ class Homepage extends React.Component {
         {this.state.slider[0] !== undefined ? (
           <Slider slider={this.state.slider} />
         ) : (
-          "Loading..."
+          <LoadingComponent />
         )}
         <Directory />
         <SpecialOffer spcialOffers={this.state.specialOffers} />

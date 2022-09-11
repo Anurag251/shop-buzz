@@ -38,7 +38,7 @@ const SpecialOfferCardList = (props) => {
             <SwiperSlide key={specialOffer.id}>
               <div
                 className="image"
-                style={{ backgroundImage: `url(${specialOffer.imageUrl})` }}
+                style={{ backgroundImage: `url(${specialOffer.image})` }}
               >
                 <div className="ribbon">
                   <div className="tag">{specialOffer.tag}</div>
@@ -70,13 +70,10 @@ const SpecialOfferCardList = (props) => {
           {props.spcialOffers
             .filter((specialOffer, idx) => specialOffer.type === "Offer")
             .filter((specialOffer, idx) =>
-              history.location.pathname === "/" ? idx < 6 : idx + 1
+              history.location.pathname === "/" ? idx < 8 : idx + 1
             )
             .map((specialOffer, idx) => (
-              <SpecialOfferCard
-                key={specialOffer.id * idx + 1}
-                item={specialOffer}
-              />
+              <SpecialOfferCard key={specialOffer.id} item={specialOffer} />
             ))}
         </div>
 

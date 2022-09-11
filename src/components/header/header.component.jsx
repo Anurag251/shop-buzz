@@ -69,7 +69,7 @@ const Header = ({ currentUser, hidden }) => {
                 </ul>
               </li> */}
 
-              <li>
+              {/* <li>
                 <NavLink to="/shop">
                   <button>Shop</button>
                 </NavLink>
@@ -79,7 +79,7 @@ const Header = ({ currentUser, hidden }) => {
                 <NavLink to="/special-offers">
                   <button>Special Offers</button>
                 </NavLink>
-              </li>
+              </li> */}
 
               <li>
                 <NavLink to="/new-collections">
@@ -115,7 +115,7 @@ const Header = ({ currentUser, hidden }) => {
             <div className="sign-cart">
               {hidden ? null : <CartDropdown />}
 
-              <div className="login">
+              {/* <div className="login">
                 {currentUser ? (
                   <div onClick={() => auth.signOut()}>SIGN OUT</div>
                 ) : (
@@ -123,7 +123,7 @@ const Header = ({ currentUser, hidden }) => {
                     <i className="fas fa-user"></i> LOGIN
                   </Link>
                 )}
-              </div>
+              </div> */}
 
               <div className="cart">
                 <CartIcon />
