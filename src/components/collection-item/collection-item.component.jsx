@@ -1,10 +1,12 @@
-import React from 'react';
-import CollectionItemsList from './collection-item-list.component';
+import React from "react";
+import LoadingComponent from "../loading/loading.component";
+import CollectionItemsList from "./collection-item-list.component";
 
 const CollectionItem = ({ title, items }) => {
   return (
     <div className="collection-item">
       <h1 className="title">{title}</h1>
+
       <CollectionItemsList items={items} />
     </div>
   );

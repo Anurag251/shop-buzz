@@ -1,19 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { addItem } from '../../redux/cart/cart.actions';
+import { addItem } from "../../redux/cart/cart.actions";
 
-import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from "../custom-button/custom-button.component";
 
 const CollectionsPreview = ({ item, addItem }) => {
-  const { name, imageUrl, price } = item;
+  const { name, image, price } = item;
   return (
     <div className="collection-preview">
       <div className="effect">
-        <div
-          className="image"
-          style={{ backgroundImage: `url(${imageUrl})` }}
-        />
+        <div className="image" style={{ backgroundImage: `url(${image})` }} />
         <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
       </div>
       <div className="collection-footer">

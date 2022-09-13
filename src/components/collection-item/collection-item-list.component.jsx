@@ -1,9 +1,10 @@
-import React from 'react';
-import CollectionsPreview from './collection-preview.component';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
+import React from "react";
+import CollectionsPreview from "./collection-preview.component";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.scss";
 
-import SwiperCore, { Autoplay } from 'swiper/core';
+import SwiperCore, { Autoplay } from "swiper/core";
+import LoadingComponent from "../loading/loading.component";
 // install Swiper modules
 SwiperCore.use([Autoplay]);
 
@@ -19,19 +20,19 @@ const CollectionItemsList = ({ items }) => {
           disableOnInteraction: false,
         }}
         breakpoints={{
-          '@0.00': {
+          "@0.00": {
             slidesPerView: 1,
             spaceBetween: 10,
           },
-          '@0.75': {
+          "@0.75": {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          '@1.00': {
+          "@1.00": {
             slidesPerView: 3,
             spaceBetween: 15,
           },
-          '@1.50': {
+          "@1.50": {
             slidesPerView: 4,
             spaceBetween: 15,
           },

@@ -1,8 +1,10 @@
-import SHOP_DATA from './shop.data';
+import itemData from "./shop.data";
 
 const INITIAL_STATE = {
-  collections: SHOP_DATA,
+  collections: itemData,
 };
+
+// console.log(itemData);
 
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
