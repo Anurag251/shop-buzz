@@ -1688,3 +1688,20 @@ iframe
     font-size: 14px
     box-shadow: 0 0 10px rgba($dark, .1)
     cursor: pointer
+
+.message-pop-up
+  position: fixed
+  top: -400px
+  left: 50%
+  transform: translateX(-50%)
+  max-width: 300px
+  padding: 1rem
+  background-color: #d2ffdf
+  color: #00601b
+  text-align: center
+  pointer-events: none
+  @include trans()
+  z-index: 100
+
+  &.active
+    top: 5px

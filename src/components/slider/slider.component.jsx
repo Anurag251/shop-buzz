@@ -38,9 +38,7 @@ const Slider = ({ slider, addItem }) => {
                     <h3>{title.toUpperCase()}</h3>
                     <h4>Price: Rs {price}/-</h4>
                     <div className="custom-button">View</div>
-                    <div className="custom-btn" onClick={() => addItem(item)}>
-                      Add To Cart
-                    </div>
+                    <div className="custom-btn">New Item</div>
                   </div>
                 </div>
                 <div className="wrappers ">

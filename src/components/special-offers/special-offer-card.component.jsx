@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -7,9 +7,20 @@ import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component";
 
 const SpecialOfferCard = ({ item, addItem }) => {
+  const [itemOnCart, setItemOnCart] = useState(false);
+
+  if (itemOnCart === true) {
+    setTimeout(() => {
+      setItemOnCart(false);
+    }, 2000);
+  }
+
   const { id, image, tag, name, price, discount } = item;
   return (
     <div className="special-offers-card">
+      <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>
+        Item Added To Cart
+      </div>
       <div className="image" style={{ backgroundImage: `url(${image})` }}>
         <div className={`${tag ? "ribbon" : ""}`}>
           <div className={`tag ${tag}`}>{tag}</div>
@@ -17,7 +28,14 @@ const SpecialOfferCard = ({ item, addItem }) => {
         <div className="quick-view">
           <i className="fas fa-search"></i>
         </div>
-        <CustomButton onClick={() => addItem(item)}>Add To Cart</CustomButton>
+        <CustomButton
+          onClick={() => {
+            addItem(item);
+            setItemOnCart(true);
+          }}
+        >
+          Add To Cart
+        </CustomButton>
       </div>
       <div className="content">
         <Link to={`product-details/${id}`}>
