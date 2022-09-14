@@ -69,13 +69,13 @@ const Header = ({ currentUser, hidden }) => {
                 </ul>
               </li> */}
 
-              {/* <li>
+              <li>
                 <NavLink to="/shop">
                   <button>Shop</button>
                 </NavLink>
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink to="/special-offers">
                   <button>Special Offers</button>
                 </NavLink>

@@ -16,10 +16,17 @@ const ProductDetailsPageComponent = ({ addItem }) => {
     contactNumber: "",
     address: "",
   });
+  const [spcialOffers, setSpcialOffers] = useState([]);
+  const [itemOnCart, setItemOnCart] = useState(false);
+
   const { id } = useParams();
   const history = useHistory();
 
-  const [spcialOffers, setSpcialOffers] = useState([]);
+  if (itemOnCart === true) {
+    setTimeout(() => {
+      setItemOnCart(false);
+    }, 2000);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -77,6 +84,9 @@ const ProductDetailsPageComponent = ({ addItem }) => {
 
   return (
     <React.Fragment>
+      <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>
+        Item Added To Cart
+      </div>
       <div className="shipping-address-popup">
         <h3>Shipping Information</h3>
 
@@ -195,7 +205,13 @@ const ProductDetailsPageComponent = ({ addItem }) => {
                       </button>
                     </a>
 
-                    <button onClick={() => addItem(item)} className="button">
+                    <button
+                      onClick={() => {
+                        addItem(item);
+                        setItemOnCart(true);
+                      }}
+                      className="button"
+                    >
                       Add To Cart
                     </button>
                   </div>

@@ -26,7 +26,7 @@ class Homepage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
 
-    fetch(urls + "slider/", {
+    fetch(urls + "product/", {
       method: "GET",
     })
       .then((res) => res.json())
