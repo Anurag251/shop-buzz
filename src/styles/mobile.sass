@@ -27,6 +27,11 @@ $dark: #000
   background-size: cover
   background-repeat: no-repeat
 
+@mixin flex($justify)
+  display: flex
+  justify-content: $justify
+  align-items: center
+
 @mixin transition
   transition: filter 0.45s cubic-bezier(0, 0, 0, 1), transform 0.45s cubic-bezier(0, 0, 0, 1)
 
@@ -36,7 +41,10 @@ a
 .mob
   /*****************    mobile-nav    ****************/
   .mobile-nav
-    position: sticky
+    position: fixed
+    left: 50%
+    transform: translateX(-50%)
+    width: 100%
     bottom: 0
     margin: 0
     padding: 0
@@ -138,6 +146,11 @@ a
   /*************************************************
    side-menu  
 
+  .cart-dropdown
+    top: -400px
+    left: 50%
+    transform: translateX(-50%)
+
   .side-menu
     position: fixed
     background-color: #141414
@@ -160,8 +173,8 @@ a
 
     .close-btn
       position: absolute
-      bottom: 10px
-      right: 10px
+      bottom: 15px
+      right: 40px
       @include image()
       height: 40px
       width: 40px
@@ -198,11 +211,14 @@ a
       margin: 2rem 0
       text-align: left
 
+      a
+        color: $light
+
       li
         .li
           line-height: 4rem
           @include space()
-          font-size: 18px
+          font-size: 24px
           font-weight: 300
           position: relative
 
@@ -416,7 +432,7 @@ a
           z-index: 1
 
   /*************************************************
-  directory  
+   directory  
 
   .directory-menu
     display: grid
@@ -462,10 +478,20 @@ a
     font-size: 40px
 
   /****************    special    *******************/
-
   .special-offers-card
     @include container()
     overflow-x: hidden
+
+    .button-area
+      text-align: center
+
+      .custom-button
+        padding: .6rem 1rem
+
+    .list-items
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+      grid-gap: 10px
 
     .swiper-container
       width: 650px
@@ -545,6 +571,28 @@ a
           background-color: $main
           display: inline-block
           border-radius: 20px
+
+  @media only screen and ( max-width:  600px)
+    .special-offers-card
+      margin-bottom: 3rem
+      .list-items
+        grid-template-columns: 1fr 1fr
+
+  @media only screen and ( max-width:  440px)
+    .special-offers-card
+      padding: 0 1rem
+
+      .swiper-container
+        height: 360px
+
+        .image
+          height: 350px
+
+      .image
+        height: 450px
+
+      .list-items
+        grid-template-columns: 1fr
 
   /*****************    feature    ******************/
 
@@ -673,3 +721,10 @@ a
   .footer
     .content-list
       display: none
+
+  .checkout-page
+    width: 700px
+    margin-bottom: 4rem
+
+  .top-header
+    @include flex($justify: center)

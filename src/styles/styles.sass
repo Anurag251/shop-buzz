@@ -266,6 +266,7 @@ a
         cursor: pointer
         margin-right: 2rem
         display: inline-block
+        margin-bottom: 1rem
 
       .custom-btn
         padding: 1rem 3rem
@@ -414,7 +415,104 @@ a
           font-size: 16px
 
   /*************************************************
-   special-offers          
+   special-offers  
+
+  .you-may-also-like
+    max-width: 1400px
+    margin: 0 auto
+    padding: 0 20px
+    overflow: hidden
+
+    .special-offers-card
+      .image
+        @include image()
+        height: 500px
+        width: 100%
+        position: relative
+        overflow: hidden
+
+        &:hover
+          .custom-button
+            bottom: 0
+            z-index: 1
+
+          .quick-view
+            height: 100px
+            width: 100px
+            opacity: 1
+
+            &:hover
+              i
+                transform: rotate(0)
+                font-size: 30px
+
+        .custom-button
+          position: absolute
+          bottom: -80px
+          left: 50%
+          transform: translateX(-50%)
+          display: inline-block
+          width: 100%
+
+        .ribbon
+          position: absolute
+          right: -35px
+          top: -35px
+          height: 140px
+          width: 140px
+          overflow: hidden
+
+          .tag
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%) rotate(45deg)
+            background-color: $main
+            color: $light
+            width: 100%
+            padding: 0.5rem 0
+            @include center()
+            text-transform: uppercase
+
+            &.Sale
+              background-color: #c10000
+
+        .quick-view
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          height: 200px
+          width: 200px
+          border-radius: 50%
+          background-color: rgba($dark, 0.2)
+          backdrop-filter: blur(10px)
+          @include center()
+          font-size: 24px
+          color: $light
+          opacity: 0
+          transition: 0.4s
+          cursor: pointer
+
+          i
+            transform: rotate(360deg)
+            transition: 0.4s
+
+      .content
+        margin: 1rem 0
+        h4
+          font-size: 24px
+          font-weight: 400
+
+        del
+          text-decoration: line-through
+          color: rgba($dark, 0.6)
+          margin: 1rem 0
+
+        h6
+          font-size: 18px
+          font-weight: 700
+          color: #c10000
 
   .special-offers
     @include container()
@@ -438,6 +536,7 @@ a
       grid-gap: 20px
 
       .special-offers-card
+
         .image
           @include image()
           height: 500px
@@ -1428,7 +1527,7 @@ iframe
     .images-list
       @include flex($justify: flex-start)
       margin-top: 10px
-      max-width: 600px
+      max-width: 400px
       width: 100%
       overflow-x: auto
       height: 20%

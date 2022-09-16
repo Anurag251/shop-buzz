@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 import { addItem } from "../../redux/cart/cart.actions";
 
 import CustomButton from "../custom-button/custom-button.component";
 
-const CollectionsPreview = ({ item, addItem }) => {
-  const [itemOnCart, setItemOnCart] = useState(false);
+const CollectionsPreview = ({ item, addItem, setItemOnCart }) => {
+  const [itemOnCarts, setItemOnCarts] = useState(false);
+  const history = useHistory();
 
-  if (itemOnCart === true) {
+  if (itemOnCarts === true) {
     setTimeout(() => {
-      setItemOnCart(false);
+      setItemOnCarts(false);
     }, 2000);
   }
 
-  const { name, image, price } = item;
+  const { id, name, image, price } = item;
   return (
     <div className="collection-preview">
-      <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>
+      <div
+        className={`message-pop-up ${itemOnCarts !== false ? "active" : ""}`}
+      >
         Item Added To Cart
       </div>
       <div className="effect">
@@ -25,14 +29,20 @@ const CollectionsPreview = ({ item, addItem }) => {
         <CustomButton
           onClick={() => {
             addItem(item);
-            setItemOnCart(true);
+            if (history.location.pathname !== "shop/") {
+              setItemOnCarts(true);
+            } else {
+              setItemOnCart(true);
+            }
           }}
         >
           Add To Cart
         </CustomButton>
       </div>
       <div className="collection-footer">
-        <h3>{name}</h3>
+        <Link to={`product-details/${id}`}>
+          <h3>{name}</h3>
+        </Link>
         <h6>Nrs: {price}/-</h6>
       </div>
     </div>

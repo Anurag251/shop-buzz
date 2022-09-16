@@ -54,8 +54,6 @@ fetch(urls + "/category")
     });
   });
 
-console.log(INITIAL_STATE);
-
 const directoryReducer = (state = INITIAL_STATE, action) => {
   if (
     INITIAL_STATE.sections[0] !== undefined ||

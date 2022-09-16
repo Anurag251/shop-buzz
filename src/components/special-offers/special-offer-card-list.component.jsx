@@ -31,59 +31,110 @@ const SpecialOfferCardList = ({ spcialOffers, addItem }) => {
       setTest(true);
     }
   }, [width]);
+
   //Mob
   if (test) {
-    return (
-      <div className="special-offers-card">
-        <div
-          className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}
-        >
-          Item Added To Cart
-        </div>
-        <Swiper
-          spaceBetween={15}
-          slidesPerView={3}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-        >
-          {spcialOffers.map((specialOffer) => (
-            <SwiperSlide key={specialOffer.id}>
-              <div
-                className="image"
-                style={{ backgroundImage: `url(${specialOffer.image})` }}
-              >
-                <div className="ribbon">
-                  <div className="tag">{specialOffer.tag}</div>
-                </div>
-                <div className="content">
+    if (history.location.pathname === "/new-collections") {
+      return (
+        <div className="special-offers-card">
+          <div
+            className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}
+          >
+            Item Added To Cart
+          </div>
+          <div className="list-items">
+            {spcialOffers.map((specialOffer) => {
+              return (
+                <div className="item" key={specialOffer.id}>
                   <div
-                    className="shopping-cart"
-                    onClick={() => {
-                      addItem(specialOffer);
-                      setItemOnCart(true);
-                    }}
+                    className="image"
+                    style={{ backgroundImage: `url(${specialOffer.image})` }}
                   >
-                    <CartIcon />
-                  </div>
-                  <h4>{specialOffer.name}</h4>
-                  <h6>
-                    NRs: {specialOffer.price} /-
-                    <del>{specialOffer.discount}</del>
-                  </h6>
+                    <div className="ribbon">
+                      <div className="tag">{specialOffer.tag}</div>
+                    </div>
+                    <div className="content">
+                      <div
+                        className="shopping-cart"
+                        onClick={() => {
+                          addItem(specialOffer);
+                          setItemOnCart(true);
+                        }}
+                      >
+                        <CartIcon />
+                      </div>
+                      <h4>{specialOffer.name}</h4>
+                      <h6>
+                        NRs: {specialOffer.price} /-
+                        <del>{specialOffer.discount}</del>
+                      </h6>
 
-                  <Link to={`product-details/${specialOffer.id}`}>
-                    <div className="button">Quick View</div>
-                  </Link>
+                      <Link to={`product-details/${specialOffer.id}`}>
+                        <div className="button">Quick View</div>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    );
+              );
+            })}
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="special-offers-card">
+          <div
+            className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}
+          >
+            Item Added To Cart
+          </div>
+          <Swiper
+            spaceBetween={15}
+            slidesPerView={3}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+          >
+            {spcialOffers.map((specialOffer) => {
+              return (
+                <SwiperSlide key={specialOffer.id}>
+                  <div
+                    className="image"
+                    style={{ backgroundImage: `url(${specialOffer.image})` }}
+                  >
+                    <div className="ribbon">
+                      <div className="tag">{specialOffer.tag}</div>
+                    </div>
+                    <div className="content">
+                      <div
+                        className="shopping-cart"
+                        onClick={() => {
+                          addItem(specialOffer);
+                          setItemOnCart(true);
+                        }}
+                      >
+                        <CartIcon />
+                      </div>
+                      <h4>{specialOffer.name}</h4>
+                      <h6>
+                        NRs: {specialOffer.price} /-
+                        <del>{specialOffer.discount}</del>
+                      </h6>
+
+                      <Link to={`product-details/${specialOffer.id}`}>
+                        <div className="button">Quick View</div>
+                      </Link>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      );
+    }
   }
   // Desktop
   else {

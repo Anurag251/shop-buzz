@@ -384,14 +384,14 @@ let itemData = {
   },
 
   mens: {
-    id: 4,
+    id: 2,
     title: "Mens",
     routeName: "mens",
     items: [],
   },
 
   tshirt: {
-    id: 4,
+    id: 3,
     title: "Tshirt",
     routeName: "tshirt",
     items: [],
@@ -405,7 +405,7 @@ let itemData = {
   },
 
   sneakers: {
-    id: 4,
+    id: 5,
     title: "Sneakers",
     routeName: "sneakers",
     items: [],

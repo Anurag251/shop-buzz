@@ -16,6 +16,7 @@ const SpecialOfferCard = ({ item, addItem }) => {
   }
 
   const { id, image, tag, name, price, discount } = item;
+
   return (
     <div className="special-offers-card">
       <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>

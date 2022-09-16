@@ -16,6 +16,9 @@ import ShopPage from "./pages/shop-page/shop-page.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 import ProductDetailsPageComponent from "./pages/product-details/product-details-page.component";
+import MobileNavComponent from "./components/mobile-nav/mobile-nav.component";
+import { ReactComponent as Logo } from "./assets/logo/Sprezzatura logo.svg";
+import { LogoIcon } from "./components/icons/icons.component";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -45,7 +48,19 @@ class App extends React.Component {
   render() {
     return (
       <div className={`${window.innerWidth <= 768 ? "mob" : "desktop"}`}>
-        <Header />
+        {window.innerWidth <= 768 ? (
+          <React.Fragment>
+            <div className="top-header">
+              <div className="logo">
+                <LogoIcon />
+              </div>
+            </div>
+            <MobileNavComponent />
+          </React.Fragment>
+        ) : (
+          <Header />
+        )}
+
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/new-collections" component={WomensPage} />

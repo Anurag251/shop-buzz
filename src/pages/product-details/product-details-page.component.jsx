@@ -9,6 +9,7 @@ import LoadingComponent from "../../components/loading/loading.component";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import FormInput from "../../components/form-input/form-input.component";
+import YouMayAlsoLikeComponent from "../../components/you-may-also-like/you-may-also-like.component";
 
 const ProductDetailsPageComponent = ({ addItem }) => {
   const [formValue, setFormValue] = useState({
@@ -222,6 +223,8 @@ const ProductDetailsPageComponent = ({ addItem }) => {
       ) : (
         <LoadingComponent />
       )}
+
+      <YouMayAlsoLikeComponent spcialOffers={spcialOffers} />
     </React.Fragment>
   );
 };

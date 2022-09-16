@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CollectionsPreview from "./collection-preview.component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
@@ -9,8 +9,18 @@ import LoadingComponent from "../loading/loading.component";
 SwiperCore.use([Autoplay]);
 
 const CollectionItemsList = ({ items }) => {
+  const [itemOnCart, setItemOnCart] = useState(false);
+
+  if (itemOnCart === true) {
+    setTimeout(() => {
+      setItemOnCart(false);
+    }, 2000);
+  }
   return (
     <div className="items-list">
+      <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>
+        Item Added To Cart
+      </div>
       <Swiper
         spaceBetween={15}
         slidesPerView={1}
@@ -40,7 +50,11 @@ const CollectionItemsList = ({ items }) => {
       >
         {items.map((item) => (
           <SwiperSlide key={item.id}>
-            <CollectionsPreview key={item.id} item={item} />
+            <CollectionsPreview
+              key={item.id}
+              item={item}
+              setItemOnCart={setItemOnCart}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

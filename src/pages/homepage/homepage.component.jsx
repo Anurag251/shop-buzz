@@ -49,7 +49,6 @@ class Homepage extends React.Component {
         <Follow />
 
         {/* <SideMinu /> */}
-        <MobileNav />
       </div>
     );
   }

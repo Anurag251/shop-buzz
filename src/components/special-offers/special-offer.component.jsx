@@ -24,7 +24,7 @@ const SpecialOffer = () => {
   return (
     <div className="special-offers">
       {history.location.pathname !== "/" ? (
-        <div className="search-area">
+        <div className="search-area" style={{ marginTop: "1rem" }}>
           <input
             className="search-filter"
             type="search"
