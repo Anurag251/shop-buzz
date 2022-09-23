@@ -84,6 +84,11 @@ $dark: #000
             height: 300px
             background-size: contain
 
+    .shop-page
+      .special-offers
+        .special-offers-card-list
+          grid-template-columns: 1fr 1fr 1fr
+
 @media only screen and (max-width: 850px)
   .desktop
     .special-offers
@@ -204,3 +209,19 @@ $dark: #000
           background-color: $main
           display: inline-block
           border-radius: 20px
+
+  /*************    product-details-page     *************/
+  .product-details-page
+    .images
+      .images-list
+        max-width: 300px
+
+    .item-details
+      h3
+        font-size: 20px
+
+      .btn-group
+        flex-wrap: wrap
+
+        button
+          width: 100%

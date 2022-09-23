@@ -24,7 +24,6 @@ const CollectionItemsList = ({ items }) => {
       <Swiper
         spaceBetween={15}
         slidesPerView={1}
-        loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

@@ -26,9 +26,9 @@ const SpecialOfferCard = ({ item, addItem }) => {
         <div className={`${tag ? "ribbon" : ""}`}>
           <div className={`tag ${tag}`}>{tag}</div>
         </div>
-        <div className="quick-view">
+        {/* <div className="quick-view">
           <i className="fas fa-search"></i>
-        </div>
+        </div> */}
         <CustomButton
           onClick={() => {
             addItem(item);

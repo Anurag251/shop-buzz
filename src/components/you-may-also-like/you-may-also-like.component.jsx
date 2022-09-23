@@ -3,16 +3,16 @@ import { ReactComponent as CartIcon } from "../../assets/Buy.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 
-import SwiperCore, { Autoplay } from "swiper/core";
+import SwiperCore, { Autoplay, Navigation } from "swiper/core";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component";
 
 // install Swiper modules
-SwiperCore.use([Autoplay]);
+SwiperCore.use([Autoplay, Navigation]);
 
-const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
+const YouMayAlsoLikeComponent = ({ spcialOffers, addItem, cateName, cId }) => {
   const history = useHistory();
   const [itemOnCart, setItemOnCart] = useState(false);
   const [test, setTest] = useState(false);
@@ -25,6 +25,8 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
 
   const width = window.innerWidth;
 
+  console.log(cateName);
+
   useEffect(() => {
     if (width <= 760) {
       setTest(true);
@@ -33,6 +35,8 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
   if (test) {
     return (
       <div className="special-offers-card">
+        <h3>You may also like</h3>
+
         <div
           className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}
         >
@@ -41,14 +45,14 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
         <Swiper
           spaceBetween={15}
           slidesPerView={3}
-          loop={true}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
           }}
+          modules={[Navigation]}
           breakpoints={{
             "@0.00": {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 10,
             },
             "@0.75": {
@@ -66,45 +70,60 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
           }}
         >
           {spcialOffers.map((specialOffer) => {
-            return (
-              <SwiperSlide key={specialOffer.id}>
-                <div
-                  className="image"
-                  style={{ backgroundImage: `url(${specialOffer.image})` }}
-                >
-                  <div className="ribbon">
-                    <div className="tag">{specialOffer.tag}</div>
-                  </div>
-                  <div className="content">
-                    <div
-                      className="shopping-cart"
-                      onClick={() => {
-                        addItem(specialOffer);
-                        setItemOnCart(true);
-                      }}
-                    >
-                      <CartIcon />
+            if (specialOffer.category.name === cateName) {
+              return (
+                <SwiperSlide key={specialOffer.id}>
+                  <div
+                    className="image"
+                    style={{ backgroundImage: `url(${specialOffer.image})` }}
+                  >
+                    <div className="ribbon">
+                      <div className="tag">{specialOffer.tag}</div>
                     </div>
-                    <h4>{specialOffer.name}</h4>
-                    <h6>
-                      NRs: {specialOffer.price} /-
-                      <del>{specialOffer.discount}</del>
-                    </h6>
+                    <div className="content">
+                      <div
+                        className="shopping-cart"
+                        onClick={() => {
+                          addItem(specialOffer);
+                          setItemOnCart(true);
+                        }}
+                      >
+                        <CartIcon />
+                      </div>
+                      <h4>{specialOffer.name}</h4>
+                      <h6>
+                        NRs: {specialOffer.price} /-
+                        <del>{specialOffer.discount}</del>
+                      </h6>
 
-                    <Link to={`product-details/${specialOffer.id}`}>
-                      <div className="button">Quick View</div>
-                    </Link>
+                      <Link
+                        to={`/product-details/${specialOffer.id}`}
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        <div className="button">Quick View</div>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            );
+                </SwiperSlide>
+              );
+            }
           })}
+          <SwiperSlide style={{ width: "200px" }}></SwiperSlide>
         </Swiper>
       </div>
     );
   } else {
     return (
-      <div className="you-may-also-like" style={{ marginBottom: "4rem" }}>
+      <div
+        className="you-may-also-like"
+        style={{
+          marginBottom: "2rem",
+          padding: "2rem 0",
+          backgroundColor: "#eeeeee",
+        }}
+      >
+        <h2 style={{ marginBottom: "1rem" }}>You may also like</h2>
+
         <div
           className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}
         >
@@ -116,6 +135,7 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
             delay: 5000,
             disableOnInteraction: false,
           }}
+          modules={[Navigation]}
           breakpoints={{
             "@0.00": {
               slidesPerView: 3,
@@ -131,7 +151,7 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
               slidesPerView: 3,
               spaceBetween: 15,
             },
-            
+
             "@1.50": {
               slidesPerView: 4,
               spaceBetween: 15,
@@ -139,47 +159,55 @@ const YouMayAlsoLikeComponent = ({ spcialOffers, addItem }) => {
           }}
         >
           {spcialOffers.map((specialOffer) => {
-            return (
-              <SwiperSlide key={specialOffer.id}>
-                <div className="special-offers-card">
-                  <div
-                    className={`message-pop-up ${
-                      itemOnCart !== false ? "active" : ""
-                    }`}
-                  >
-                    Item Added To Cart
-                  </div>
-                  <div
-                    className="image"
-                    style={{ backgroundImage: `url(${specialOffer.image})` }}
-                  >
-                    <div className={`${specialOffer.tag ? "ribbon" : ""}`}>
-                      <div className={`tag ${specialOffer.tag}`}>
-                        {specialOffer.tag}
-                      </div>
+            if (specialOffer.category.name === cateName) {
+              console.log(specialOffer.category.id);
+              return (
+                <SwiperSlide key={specialOffer.id}>
+                  <div className="special-offers-card">
+                    <div
+                      className={`message-pop-up ${
+                        itemOnCart !== false ? "active" : ""
+                      }`}
+                    >
+                      Item Added To Cart
                     </div>
-                    <div className="quick-view">
-                      <i className="fas fa-search"></i>
-                    </div>
-                    <CustomButton
-                      onClick={() => {
-                        addItem(specialOffer);
-                        setItemOnCart(true);
+                    <div
+                      className="image"
+                      style={{
+                        backgroundImage: `url(${specialOffer.image})`,
                       }}
                     >
-                      Add To Cart
-                    </CustomButton>
+                      <div className={`${specialOffer.tag ? "ribbon" : ""}`}>
+                        <div className={`tag ${specialOffer.tag}`}>
+                          {specialOffer.tag}
+                        </div>
+                      </div>
+                      {/* <div className="quick-view">
+                        <i className="fas fa-search"></i>
+                      </div> */}
+                      <CustomButton
+                        onClick={() => {
+                          addItem(specialOffer);
+                          setItemOnCart(true);
+                        }}
+                      >
+                        Add To Cart
+                      </CustomButton>
+                    </div>
+                    <div className="content">
+                      <Link
+                        to={`/product-details/${specialOffer.id}`}
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        <h4>{specialOffer.name}</h4>
+                      </Link>
+                      <del>Rs: {specialOffer.discount}</del>
+                      <h6>Rs: {specialOffer.price} /- </h6>
+                    </div>
                   </div>
-                  <div className="content">
-                    <Link to={`product-details/${specialOffer.id}`}>
-                      <h4>{specialOffer.name}</h4>
-                    </Link>
-                    <del>Rs: {specialOffer.discount}</del>
-                    <h6>Rs: {specialOffer.price} /- </h6>
-                  </div>
-                </div>
-              </SwiperSlide>
-            );
+                </SwiperSlide>
+              );
+            }
           })}
         </Swiper>
       </div>

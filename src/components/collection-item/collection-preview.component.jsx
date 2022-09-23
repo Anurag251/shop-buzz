@@ -40,7 +40,7 @@ const CollectionsPreview = ({ item, addItem, setItemOnCart }) => {
         </CustomButton>
       </div>
       <div className="collection-footer">
-        <Link to={`product-details/${id}`}>
+        <Link to={`/product-details/${id}`}>
           <h3>{name}</h3>
         </Link>
         <h6>Nrs: {price}/-</h6>

@@ -19,6 +19,7 @@ const ProductDetailsPageComponent = ({ addItem }) => {
   });
   const [spcialOffers, setSpcialOffers] = useState([]);
   const [itemOnCart, setItemOnCart] = useState(false);
+  const [cateName, setCateName] = useState("");
 
   const { id } = useParams();
   const history = useHistory();
@@ -31,6 +32,7 @@ const ProductDetailsPageComponent = ({ addItem }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     fetch(urls + "product/", {
       method: "GET",
     })
@@ -83,6 +85,9 @@ const ProductDetailsPageComponent = ({ addItem }) => {
     setFormValue({ ...formValue, [name]: value });
   };
 
+  let cName;
+  let cId;
+
   return (
     <React.Fragment>
       <div className={`message-pop-up ${itemOnCart !== false ? "active" : ""}`}>
@@ -134,97 +139,111 @@ const ProductDetailsPageComponent = ({ addItem }) => {
         <div className="wrapper">
           {spcialOffers
             .filter((item) => item.id === parseInt(id))
-            .map((item, idx) => (
-              <div
-                key={idx}
-                className="product-details-page"
-                id="product-details"
-              >
-                <div className="images active" id="color1">
-                  <div className="image-preview">
-                    <img src={item.image} alt="" id="img" />
-                  </div>
+            .map((item, idx) => {
+              cName = item.category.name;
+              cId = item.category.id;
 
-                  <div className="images-list">
-                    <img src={item.image} id="img" className="active" alt="" />
+              return (
+                <div
+                  key={idx}
+                  className="product-details-page"
+                  id="product-details"
+                >
+                  <div className="images active" id="color1">
+                    <div className="image-preview">
+                      <img src={item.image} alt="" id="img" />
+                    </div>
 
-                    {item.productimage.map((image, idx) => (
-                      <img key={idx} src={image.image} id="img" alt="" />
-                    ))}
-                  </div>
-                </div>
+                    <div className="images-list">
+                      <img
+                        src={item.image}
+                        id="img"
+                        className="active"
+                        alt=""
+                      />
 
-                <div className="item-details">
-                  <h3>{item.name}</h3>
-                  <WhatsappShareButton
-                    url={`http://localhost:3001/product-details/${id}`}
-                    title={`Product Name: ${item.name} | Product Id: ${item.id} | `}
-                  >
-                    <i className="fas fa-share"></i> Share This Product
-                  </WhatsappShareButton>
-                  <div className="rating">
-                    <div className="stars" data-value="2"></div>
-                  </div>
-
-                  <div className="price">
-                    <div className="new">
-                      <div id="product-price-text">
-                        Rs <span>{item.price}</span>
-                        <del>
-                          Rs <span>{item.discount}</span>
-                        </del>
-                      </div>
+                      {item.productimage.map((image, idx) => (
+                        <img key={idx} src={image.image} id="img" alt="" />
+                      ))}
                     </div>
                   </div>
 
-                  <div className="profuct-desc">
-                    <h4>Product Descriptions:</h4>
-                    <p>{item.description}</p>
-                  </div>
-
-                  <div className="btn-group">
-                    <button className="button" id="shippingPopoupBtn">
-                      <i className="fab fa-whatsapp"></i> What's App Us
-                    </button>
-
-                    <a
-                      href={`https://api.whatsapp.com/send?phone=9779817322795&text=Product%20Image:%20${item.image}%20|%20Product%20Name:%20${item.name}%20|%20Product%20Price:%20${item.price}%20|%20User%20Name:%20${formValue.fullName}%20|%20User%20Contact:%20${formValue.contactNumber}%20|%20User%20Address:%20${formValue.address}`}
-                      target="blank"
-                      style={{ display: "none" }}
-                      id="forceToClick"
+                  <div className="item-details">
+                    <h3>{item.name}</h3>
+                    <WhatsappShareButton
+                      url={`http://localhost:3001/product-details/${id}`}
+                      title={`Product Name: ${item.name} | Product Id: ${item.id} | `}
                     >
-                      a
-                    </a>
+                      <i className="fas fa-share"></i> Share This Product
+                    </WhatsappShareButton>
+                    <div className="rating">
+                      <div className="stars" data-value="2"></div>
+                    </div>
 
-                    <a
-                      href="tel:+9779817322795"
-                      target="blank"
-                      style={{ width: "100%", marginRight: "10px" }}
-                    >
-                      <button className="button">
-                        <i className="fas fa-phone-alt"></i> Call Us
+                    <div className="price">
+                      <div className="new">
+                        <div id="product-price-text">
+                          Rs <span>{item.price}</span>
+                          <del>
+                            Rs <span>{item.discount}</span>
+                          </del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="profuct-desc">
+                      <h4>Product Descriptions:</h4>
+                      <p>{item.description}</p>
+                    </div>
+
+                    <div className="btn-group">
+                      <button className="button" id="shippingPopoupBtn">
+                        <i className="fab fa-whatsapp"></i> What's App Us
                       </button>
-                    </a>
 
-                    <button
-                      onClick={() => {
-                        addItem(item);
-                        setItemOnCart(true);
-                      }}
-                      className="button"
-                    >
-                      Add To Cart
-                    </button>
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=9779845412777&text=Product%20Image:%20${item.image}%20|%20Product%20Name:%20${item.name}%20|%20Product%20Price:%20${item.price}%20|%20User%20Name:%20${formValue.fullName}%20|%20User%20Contact:%20${formValue.contactNumber}%20|%20User%20Address:%20${formValue.address}`}
+                        target="blank"
+                        style={{ display: "none" }}
+                        id="forceToClick"
+                      >
+                        a
+                      </a>
+
+                      <a
+                        href="tel:+9779845412777"
+                        target="blank"
+                        style={{ width: "100%", marginRight: "10px" }}
+                      >
+                        <button className="button">
+                          <i className="fas fa-phone-alt"></i> Call Us
+                        </button>
+                      </a>
+
+                      <button
+                        onClick={() => {
+                          addItem(item);
+                          setItemOnCart(true);
+                        }}
+                        className="button"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       ) : (
         <LoadingComponent />
       )}
 
-      <YouMayAlsoLikeComponent spcialOffers={spcialOffers} />
+      <YouMayAlsoLikeComponent
+        spcialOffers={spcialOffers}
+        cateName={cName}
+        cId={cId}
+      />
     </React.Fragment>
   );
 };

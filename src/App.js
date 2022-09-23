@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -52,7 +52,9 @@ class App extends React.Component {
           <React.Fragment>
             <div className="top-header">
               <div className="logo">
-                <LogoIcon />
+                <Link to="/">
+                  <LogoIcon />
+                </Link>
               </div>
             </div>
             <MobileNavComponent />
