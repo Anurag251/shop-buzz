@@ -30,17 +30,21 @@ const Footer = () => {
       <div className="content-list">
         <div className="content">
           <h4>Contact</h4>
-          <h6>Email: abcd@gmail.com</h6>
-          <h6>Phone No: 9876543210</h6>
-          <h6>Location: Koteswor, Kathmandu</h6>
+          <h6>Email: sprezzaturanepal@gmail.com</h6>
+          <h6>Contact No: +977-9849918482</h6>
+          <h6>Contact No: +977-9817322795</h6>
+          <h6>Contact No: +977-9845412777</h6>
+          <h6>Location: Mid Baneshwor, Kathmandu</h6>
         </div>
 
-        <div className="content">
+        <div></div>
+
+        {/* <div className="content">
           <h4>Contact</h4>
-          <h6>www.castelclothing.com</h6>
+          <h6>www.sprezzaturanepal.com</h6>
           <h6>www.facebook.com</h6>
           <h6>www.twitter.com</h6>
-        </div>
+        </div> */}
 
         <div className="slide-image">
           <Swiper

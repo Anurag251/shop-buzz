@@ -171,8 +171,8 @@ const ProductDetailsPageComponent = ({ addItem }) => {
                   <div className="item-details">
                     <h3>{item.name}</h3>
                     <WhatsappShareButton
-                      url={`http://localhost:3001/product-details/${id}`}
-                      title={`Product Name: ${item.name} | Product Id: ${item.id} | `}
+                      url={`${url}/product-details/${id}`}
+                      title={`Product Name: ${item.name} | Product Price: ${item.price} | Product Image: ${item.image} |`}
                     >
                       <i className="fas fa-share"></i> Share This Product
                     </WhatsappShareButton>
